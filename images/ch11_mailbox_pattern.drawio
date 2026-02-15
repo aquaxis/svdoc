@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch11_mailbox" name="mailboxのプロデューサ・コンシューマパターン">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="2" value="mailboxのプロデューサ・コンシューマパターン" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        <!-- Producer -->
+        <mxCell id="3" value="Producer&#xa;（プロデューサ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="180" height="80" as="geometry" />
+        </mxCell>
+        <!-- put() arrow -->
+        <mxCell id="4" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1565C0;strokeWidth=3;fontSize=12;" edge="1" parent="1" source="3" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="mailbox.put(data)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#1565C0;fontStyle=1;fontFamily=Courier New;" vertex="1" connectable="0" parent="4">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Mailbox (FIFO Queue) -->
+        <mxCell id="7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFB300;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="120" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Mailbox（FIFO）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="125" width="180" height="25" as="geometry" />
+        </mxCell>
+        <!-- Queue items -->
+        <mxCell id="9" value="data1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="165" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="data2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="445" y="165" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="data3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="165" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="565" y="165" width="40" height="35" as="geometry" />
+        </mxCell>
+        <!-- Queue direction arrow -->
+        <mxCell id="13" value="" style="endArrow=classic;html=1;strokeColor=#FFB300;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="220" as="sourcePoint" />
+            <mxPoint x="600" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="FIFO順序" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFB300;" vertex="1" parent="1">
+          <mxGeometry x="460" y="222" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- get() arrow -->
+        <mxCell id="15" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2E7D32;strokeWidth=3;fontSize=12;" edge="1" parent="1" source="7" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="mailbox.get(data)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#2E7D32;fontStyle=1;fontFamily=Courier New;" vertex="1" connectable="0" parent="15">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Consumer -->
+        <mxCell id="18" value="Consumer&#xa;（コンシューマ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="760" y="150" width="180" height="80" as="geometry" />
+        </mxCell>
+        <!-- Blocking notes -->
+        <mxCell id="19" value="ブロッキング動作" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="350" y="310" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- put blocking note -->
+        <mxCell id="20" value="put()のブロッキング:&#xa;bounded mailboxの場合、&#xa;キューが満杯だと空きが出るまで&#xa;プロデューサがブロックされる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="300" height="80" as="geometry" />
+        </mxCell>
+        <!-- get blocking note -->
+        <mxCell id="21" value="get()のブロッキング:&#xa;キューが空の場合、&#xa;データが到着するまで&#xa;コンシューマがブロックされる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="350" width="300" height="80" as="geometry" />
+        </mxCell>
+        <!-- Non-blocking alternatives -->
+        <mxCell id="22" value="非ブロッキング代替:&#xa;try_put() / try_get()&#xa;→ 即座にステータスを返す" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="340" y="460" width="280" height="60" as="geometry" />
+        </mxCell>
+        <!-- peek note -->
+        <mxCell id="23" value="peek():&#xa;データを取り出さずに確認&#xa;（キューからは削除しない）" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="340" y="540" width="280" height="55" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

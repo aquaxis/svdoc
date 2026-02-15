@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch09_handle_obj" name="ハンドルとオブジェクトの関係">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="2" value="ハンドルとオブジェクトの関係" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Stack region label -->
+        <mxCell id="3" value="スタック領域" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="70" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- Stack background -->
+        <mxCell id="4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="280" height="400" as="geometry" />
+        </mxCell>
+        <!-- Heap region label -->
+        <mxCell id="5" value="ヒープ領域" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="550" y="70" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- Heap background -->
+        <mxCell id="6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="400" height="400" as="geometry" />
+        </mxCell>
+        <!-- Handle h1 -->
+        <mxCell id="7" value="Transaction h1;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Handle h2 -->
+        <mxCell id="8" value="Transaction h2;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Handle h3 (null) -->
+        <mxCell id="9" value="Transaction h3 = null;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="370" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Object 1 -->
+        <mxCell id="10" value="Transaction オブジェクト&#xa;─────────────&#xa;addr = 32'hFF00&#xa;data = 8'hAB&#xa;kind = WRITE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="280" height="100" as="geometry" />
+        </mxCell>
+        <!-- Object 2 -->
+        <mxCell id="11" value="Transaction オブジェクト&#xa;─────────────&#xa;addr = 32'h0010&#xa;data = 8'h55&#xa;kind = READ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="280" height="100" as="geometry" />
+        </mxCell>
+        <!-- Arrow h1 -> Object1 -->
+        <mxCell id="12" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1565C0;strokeWidth=2;" edge="1" parent="1" source="7" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="参照" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#1565C0;fontStyle=1;" vertex="1" connectable="0" parent="12">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow h2 -> Object2 -->
+        <mxCell id="14" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1565C0;strokeWidth=2;" edge="1" parent="1" source="8" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="参照" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#1565C0;fontStyle=1;" vertex="1" connectable="0" parent="14">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- null symbol for h3 -->
+        <mxCell id="16" value="null" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="340" y="378" width="60" height="30" as="geometry" />
+        </mxCell>
+        <!-- X mark for null -->
+        <mxCell id="17" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#C62828;strokeWidth=2;dashed=1;endArrow=none;" edge="1" parent="1" source="9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Note: new creates object -->
+        <mxCell id="18" value="h1 = new();&#xa;→ ヒープにオブジェクトを生成し&#xa;   ハンドルに参照を格納" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="520" y="410" width="280" height="60" as="geometry" />
+        </mxCell>
+        <!-- Note: null handle -->
+        <mxCell id="19" value="※ nullハンドルへのアクセスは&#xa;   実行時エラーとなる" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="220" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

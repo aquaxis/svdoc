@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" agent="draw.io" type="device">
+  <diagram id="ch06_axi_interface" name="AXIインターフェースの構造図">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- タイトル -->
+        <mxCell id="2" value="AXI（Advanced eXtensible Interface）インターフェース構造図" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== AXI Master ========== -->
+        <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="280" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;b&gt;AXI Master&lt;/b&gt;&lt;br&gt;（CPU / DMA）" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#1a5276;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="110" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Master内部ブロック -->
+        <mxCell id="5" value="Write Address&lt;br&gt;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Write Data&lt;br&gt;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="240" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Write Response&lt;br&gt;Handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Read Address&lt;br&gt;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="380" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Read Data&lt;br&gt;Handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="130" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ========== AXI Slave ========== -->
+        <mxCell id="10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="100" width="280" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;AXI Slave&lt;/b&gt;&lt;br&gt;（Memory / Peripheral）" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#2e7d32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="110" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- Slave内部ブロック -->
+        <mxCell id="12" value="Write Address&lt;br&gt;Decoder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="180" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Write Data&lt;br&gt;Receiver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="240" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Write Response&lt;br&gt;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="300" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Read Address&lt;br&gt;Decoder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="380" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Read Data&lt;br&gt;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="440" width="130" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 5つのチャネル ========== -->
+        <!-- Write Address Channel (AW) -->
+        <mxCell id="20" value="&lt;b&gt;Write Address Channel (AW)&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;1&quot;&gt;AWADDR, AWLEN, AWSIZE, AWBURST&lt;br&gt;AWVALID / AWREADY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="170" width="340" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;endArrow=classic;" edge="1" source="5" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;endArrow=classic;" edge="1" source="20" target="12" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Write Data Channel (W) -->
+        <mxCell id="23" value="&lt;b&gt;Write Data Channel (W)&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;1&quot;&gt;WDATA, WSTRB, WLAST&lt;br&gt;WVALID / WREADY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="240" width="340" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;endArrow=classic;" edge="1" source="6" target="23" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;endArrow=classic;" edge="1" source="23" target="13" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Write Response Channel (B) -->
+        <mxCell id="26" value="&lt;b&gt;Write Response Channel (B)&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;1&quot;&gt;BRESP&lt;br&gt;BVALID / BREADY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="310" width="340" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#b85450;endArrow=classic;" edge="1" source="14" target="26" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#b85450;endArrow=classic;" edge="1" source="26" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Read Address Channel (AR) -->
+        <mxCell id="29" value="&lt;b&gt;Read Address Channel (AR)&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;1&quot;&gt;ARADDR, ARLEN, ARSIZE, ARBURST&lt;br&gt;ARVALID / ARREADY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#7986CB;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="385" width="340" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#7986CB;endArrow=classic;" edge="1" source="8" target="29" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#7986CB;endArrow=classic;" edge="1" source="29" target="15" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Read Data Channel (R) -->
+        <mxCell id="32" value="&lt;b&gt;Read Data Channel (R)&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;1&quot;&gt;RDATA, RRESP, RLAST&lt;br&gt;RVALID / RREADY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#7986CB;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="455" width="340" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#7986CB;endArrow=classic;" edge="1" source="16" target="32" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#7986CB;endArrow=classic;" edge="1" source="32" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 凡例 ========== -->
+        <mxCell id="40" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="430" y="540" width="340" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="&lt;b&gt;凡例&lt;/b&gt;" style="text;html=1;align=left;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="440" y="545" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="450" y="570" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="Master→Slave（Writeアドレス/データ）" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="478" y="567" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="450" y="590" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="Slave→Master（Writeレスポンス）" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="478" y="587" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#7986CB;" vertex="1" parent="1">
+          <mxGeometry x="450" y="610" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="Readチャネル（アドレス: M→S、データ: S→M）" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="478" y="607" width="280" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Handshakeプロトコル注釈 -->
+        <mxCell id="50" value="全チャネル共通: VALID/READY ハンドシェイクプロトコル" style="text;html=1;align=center;verticalAlign=middle;fillColor=#E8EAF6;strokeColor=#7986CB;rounded=1;fontSize=12;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="350" y="660" width="500" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

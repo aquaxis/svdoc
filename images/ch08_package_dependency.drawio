@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch08_pkg_dep" name="パッケージの依存関係">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="2" value="パッケージの依存関係" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="300" height="40" as="geometry" />
+        </mxCell>
+        <!-- Correct dependency section label -->
+        <mxCell id="3" value="✔ 正しい依存関係" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- pkg_a -->
+        <mxCell id="4" value="pkg_a&#xa;(基盤パッケージ)" style="shape=mxgraph.uml.package;tabWidth=120;tabHeight=25;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="180" height="100" as="geometry" />
+        </mxCell>
+        <!-- pkg_b -->
+        <mxCell id="5" value="pkg_b&#xa;(中間パッケージ)" style="shape=mxgraph.uml.package;tabWidth=120;tabHeight=25;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="110" width="180" height="100" as="geometry" />
+        </mxCell>
+        <!-- pkg_c -->
+        <mxCell id="6" value="pkg_c&#xa;(上位パッケージ)" style="shape=mxgraph.uml.package;tabWidth=120;tabHeight=25;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="110" width="180" height="100" as="geometry" />
+        </mxCell>
+        <!-- Arrow: pkg_b imports pkg_a -->
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2E7D32;strokeWidth=2;" edge="1" parent="1" source="5" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="import pkg_a" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#2E7D32;" vertex="1" connectable="0" parent="7">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: pkg_c imports pkg_b -->
+        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2E7D32;strokeWidth=2;" edge="1" parent="1" source="6" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="import pkg_b" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#2E7D32;" vertex="1" connectable="0" parent="9">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: pkg_c imports pkg_a (transitive) -->
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#2E7D32;strokeWidth=1;dashed=1;curved=1;" edge="1" parent="1" source="6" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="280" />
+              <mxPoint x="190" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="import pkg_a（直接参照も可）" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2E7D32;" vertex="1" connectable="0" parent="11">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Circular dependency section -->
+        <mxCell id="13" value="✘ 循環依存（禁止）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- pkg_x -->
+        <mxCell id="14" value="pkg_x" style="shape=mxgraph.uml.package;tabWidth=80;tabHeight=25;html=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="390" width="150" height="80" as="geometry" />
+        </mxCell>
+        <!-- pkg_y -->
+        <mxCell id="15" value="pkg_y" style="shape=mxgraph.uml.package;tabWidth=80;tabHeight=25;html=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="450" y="390" width="150" height="80" as="geometry" />
+        </mxCell>
+        <!-- Arrow: pkg_x -> pkg_y -->
+        <mxCell id="16" style="html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#C62828;strokeWidth=2;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="import" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#C62828;" vertex="1" connectable="0" parent="16">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: pkg_y -> pkg_x (creates cycle) -->
+        <mxCell id="18" style="html=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#C62828;strokeWidth=2;" edge="1" parent="1" source="15" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="import" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#C62828;" vertex="1" connectable="0" parent="18">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- X mark for circular dependency -->
+        <mxCell id="20" value="✘" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=40;fontColor=#C62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="390" width="60" height="60" as="geometry" />
+        </mxCell>
+        <!-- Error note -->
+        <mxCell id="21" value="コンパイルエラー:&#xa;循環依存は許可されない" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="390" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- Direction note -->
+        <mxCell id="22" value="依存方向: 上位 → 下位（一方向）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="300" y="500" width="300" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

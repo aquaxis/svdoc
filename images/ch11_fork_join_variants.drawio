@@ -1,0 +1,137 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch11_fork_join" name="fork-joinの3つのバリエーション">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="2" value="fork-joinの3つのバリエーション" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="10" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Time axis -->
+        <mxCell id="t1" value="時間 →" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="900" y="55" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===== fork-join (ALL) ===== -->
+        <mxCell id="3" value="① fork-join（全プロセス完了まで待機）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="400" height="25" as="geometry" />
+        </mxCell>
+        <!-- fork point -->
+        <mxCell id="4" value="fork" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="95" width="50" height="80" as="geometry" />
+        </mxCell>
+        <!-- Process bars -->
+        <mxCell id="5" value="プロセス1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="95" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="プロセス2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="125" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="プロセス3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="155" width="500" height="20" as="geometry" />
+        </mxCell>
+        <!-- join point (at longest process end) -->
+        <mxCell id="8" value="join" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="95" width="50" height="80" as="geometry" />
+        </mxCell>
+        <!-- Continuation after join -->
+        <mxCell id="9" value="継続" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="125" width="120" height="20" as="geometry" />
+        </mxCell>
+        <!-- Completion marker lines -->
+        <mxCell id="10" value="" style="endArrow=none;html=1;strokeColor=#C62828;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="90" as="sourcePoint" />
+            <mxPoint x="660" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a1" value="全完了" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="640" y="185" width="40" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ===== fork-join_any ===== -->
+        <mxCell id="11" value="② fork-join_any（いずれか1つ完了で継続）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="450" height="25" as="geometry" />
+        </mxCell>
+        <!-- fork point -->
+        <mxCell id="12" value="fork" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="255" width="50" height="80" as="geometry" />
+        </mxCell>
+        <!-- Process bars -->
+        <mxCell id="13" value="プロセス1（最短）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="255" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="プロセス2（実行中...）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="160" y="285" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="プロセス3（実行中...）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="160" y="315" width="500" height="20" as="geometry" />
+        </mxCell>
+        <!-- join_any point (at shortest process end) -->
+        <mxCell id="16" value="join_any" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="255" width="60" height="80" as="geometry" />
+        </mxCell>
+        <!-- Continuation after join_any -->
+        <mxCell id="17" value="継続（他は実行中）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="255" width="150" height="20" as="geometry" />
+        </mxCell>
+        <!-- Completion marker -->
+        <mxCell id="18" value="" style="endArrow=none;html=1;strokeColor=#C62828;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="250" as="sourcePoint" />
+            <mxPoint x="310" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="最初の1つ完了" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="270" y="345" width="80" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ===== fork-join_none ===== -->
+        <mxCell id="19" value="③ fork-join_none（即座に継続 / バックグラウンド実行）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="500" height="25" as="geometry" />
+        </mxCell>
+        <!-- fork point -->
+        <mxCell id="20" value="fork" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="415" width="50" height="80" as="geometry" />
+        </mxCell>
+        <!-- Process bars (background) -->
+        <mxCell id="21" value="プロセス1（バックグラウンド）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="160" y="415" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="プロセス2（バックグラウンド）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="160" y="445" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="プロセス3（バックグラウンド）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#999999;fontSize=10;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="160" y="475" width="500" height="20" as="geometry" />
+        </mxCell>
+        <!-- join_none - immediate continuation -->
+        <mxCell id="24" value="join_none" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="505" width="70" height="30" as="geometry" />
+        </mxCell>
+        <!-- Continuation immediately -->
+        <mxCell id="25" value="即座に継続（待機なし）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="235" y="508" width="200" height="24" as="geometry" />
+        </mxCell>
+        <!-- Immediate marker -->
+        <mxCell id="26" value="" style="endArrow=none;html=1;strokeColor=#C62828;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="410" as="sourcePoint" />
+            <mxPoint x="150" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a3" value="即時" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="135" y="545" width="30" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- Summary table -->
+        <mxCell id="27" value="まとめ" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="400" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="fork-join: 全完了を待つ&#xa;fork-join_any: 最初の完了を待つ&#xa;fork-join_none: 待たない" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="430" width="300" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

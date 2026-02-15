@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch08_pkg_concept" name="パッケージの概念">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- タイトル -->
+        <mxCell id="2" value="パッケージの概念" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="300" height="40" as="geometry" />
+        </mxCell>
+        <!-- パッケージブロック -->
+        <mxCell id="3" value="&lt;b&gt;package my_pkg;&lt;/b&gt;" style="shape=mxgraph.uml.package;tabWidth=180;tabHeight=30;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="180" y="80" width="520" height="400" as="geometry" />
+        </mxCell>
+        <!-- typedef -->
+        <mxCell id="4" value="&lt;b&gt;typedef&lt;/b&gt;&lt;br&gt;logic [7:0] byte_t;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="140" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- parameter -->
+        <mxCell id="5" value="&lt;b&gt;parameter&lt;/b&gt;&lt;br&gt;int WIDTH = 8;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="140" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- function -->
+        <mxCell id="6" value="&lt;b&gt;function&lt;/b&gt;&lt;br&gt;function int calc(...);" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="220" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- task -->
+        <mxCell id="7" value="&lt;b&gt;task&lt;/b&gt;&lt;br&gt;task drive_bus(...);" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="220" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- class -->
+        <mxCell id="8" value="&lt;b&gt;class&lt;/b&gt;&lt;br&gt;class Transaction;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="340" y="300" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- enum -->
+        <mxCell id="9" value="&lt;b&gt;enum&lt;/b&gt;&lt;br&gt;typedef enum {A, B, C} state_e;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="380" width="210" height="50" as="geometry" />
+        </mxCell>
+        <!-- struct -->
+        <mxCell id="10" value="&lt;b&gt;struct&lt;/b&gt;&lt;br&gt;typedef struct {...} data_s;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="380" width="210" height="50" as="geometry" />
+        </mxCell>
+        <!-- 外部モジュール1 -->
+        <mxCell id="11" value="&lt;b&gt;module top_module;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="820" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <!-- 外部モジュール2 -->
+        <mxCell id="12" value="&lt;b&gt;module sub_module;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="820" y="300" width="200" height="60" as="geometry" />
+        </mxCell>
+        <!-- import文 (top_module) -->
+        <mxCell id="13" value="import my_pkg::*;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=2;fontColor=#0000CC;" vertex="1" parent="1">
+          <mxGeometry x="750" y="100" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- import文 (sub_module) -->
+        <mxCell id="14" value="import my_pkg::byte_t;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=2;fontColor=#0000CC;" vertex="1" parent="1">
+          <mxGeometry x="750" y="260" width="150" height="30" as="geometry" />
+        </mxCell>
+        <!-- 矢印: top_module → package -->
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;strokeColor=#0000CC;strokeWidth=2;dashed=1;" edge="1" parent="1" source="11" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="import" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#0000CC;fontStyle=1;" vertex="1" connectable="0" parent="15">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- 矢印: sub_module → package -->
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#0000CC;strokeWidth=2;dashed=1;" edge="1" parent="1" source="12" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="import" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#0000CC;fontStyle=1;" vertex="1" connectable="0" parent="17">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <!-- 説明ノート -->
+        <mxCell id="19" value="※ パッケージにより&#xa;名前空間が分離され&#xa;再利用性が向上する" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=11;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="820" y="420" width="200" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

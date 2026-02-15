@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" type="device">
+  <diagram id="ch10_dist" name="dist演算子の:=と:/の違い">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Title -->
+        <mxCell id="2" value="dist演算子の := と :/ の違い" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+        <!-- Upper section: := operator -->
+        <mxCell id="3" value=":= 演算子（各値に均等な重み）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="350" height="30" as="geometry" />
+        </mxCell>
+        <!-- Code box for := -->
+        <mxCell id="4" value="x dist { [0:3] := 1 };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=13;fontFamily=Courier New;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="110" width="300" height="40" as="geometry" />
+        </mxCell>
+        <!-- Bar chart for := -->
+        <!-- Bar 0 -->
+        <mxCell id="5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="90" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="195" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="重み: 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="73" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 1 -->
+        <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="90" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="195" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="重み: 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="73" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 2 -->
+        <mxCell id="11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="195" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="重み: 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="73" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 3 -->
+        <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="90" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="195" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="重み: 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="73" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Y-axis label := -->
+        <mxCell id="17" value="重み" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;rotation=-90;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="480" y="130" width="40" height="20" as="geometry" />
+        </mxCell>
+        <!-- Result text := -->
+        <mxCell id="18" value="→ 各値の確率: 25% (=1/4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#1565C0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="130" width="200" height="25" as="geometry" />
+        </mxCell>
+        <!-- Separator line -->
+        <mxCell id="19" value="" style="line;strokeWidth=2;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=10;rotatable=0;points=[];portConstraint=eastwest;strokeColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="950" height="10" as="geometry" />
+        </mxCell>
+        <!-- Lower section: :/ operator -->
+        <mxCell id="20" value=":/ 演算子（範囲全体で重みを分割）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="350" height="30" as="geometry" />
+        </mxCell>
+        <!-- Code box for :/ -->
+        <mxCell id="21" value="x dist { [0:3] :/ 1 };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;fontSize=13;fontFamily=Courier New;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="300" height="40" as="geometry" />
+        </mxCell>
+        <!-- Bar chart for :/ -->
+        <!-- Bar 0 -->
+        <mxCell id="22" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C62828;strokeColor=#B71C1C;" vertex="1" parent="1">
+          <mxGeometry x="520" y="295" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="325" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="重み: 0.25" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="520" y="275" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 1 -->
+        <mxCell id="25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C62828;strokeColor=#B71C1C;" vertex="1" parent="1">
+          <mxGeometry x="600" y="295" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="325" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="重み: 0.25" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="600" y="275" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 2 -->
+        <mxCell id="28" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C62828;strokeColor=#B71C1C;" vertex="1" parent="1">
+          <mxGeometry x="680" y="295" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="325" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="重み: 0.25" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="680" y="275" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar 3 -->
+        <mxCell id="31" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C62828;strokeColor=#B71C1C;" vertex="1" parent="1">
+          <mxGeometry x="760" y="295" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="325" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="重み: 0.25" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="760" y="275" width="60" height="20" as="geometry" />
+        </mxCell>
+        <!-- Y-axis label :/ -->
+        <mxCell id="34" value="重み" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;rotation=-90;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="480" y="295" width="40" height="20" as="geometry" />
+        </mxCell>
+        <!-- Result text :/ -->
+        <mxCell id="35" value="→ 各値の確率: 25% (=1/4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#C62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="295" width="200" height="25" as="geometry" />
+        </mxCell>
+        <!-- Explanation box -->
+        <mxCell id="36" value="重要な違い:&#xa;:= → 範囲内の各値に指定した重みを割り当て&#xa;       （4値 × 重み1 = 合計重み4）&#xa;:/ → 範囲全体に指定した重みを均等分割&#xa;       （重み1 ÷ 4値 = 各値重み0.25）&#xa;&#xa;※ この例では結果的に同じ確率だが、&#xa;   他の制約と組み合わせた場合に差が出る" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFB300;fontSize=12;align=left;spacingLeft=15;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="80" y="370" width="450" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

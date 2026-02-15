@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" agent="draw.io" type="device">
+  <diagram id="ch13_coverage_flow" name="カバレッジフローの図">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- タイトル -->
+        <mxCell id="2" value="カバレッジ駆動検証フロー（Coverage-Driven Verification）" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 1: カバレッジ目標定義 ========== -->
+        <mxCell id="10" value="&lt;b&gt;1. カバレッジ目標定義&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="• コードカバレッジ目標（line, branch, toggle）&lt;br&gt;• 機能カバレッジ定義（covergroup）&lt;br&gt;• クロスカバレッジ定義" style="text;html=1;align=left;fontSize=10;fillColor=#EBF5FB;strokeColor=#6c8ebf;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="145" width="250" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 2: テスト計画 ========== -->
+        <mxCell id="20" value="&lt;b&gt;2. テスト計画作成&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="230" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="• テストシナリオ列挙&lt;br&gt;• 制約付きランダム生成設計&lt;br&gt;• directed test の特定" style="text;html=1;align=left;fontSize=10;fillColor=#E8F5E9;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="285" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 3: テスト実行 ========== -->
+        <mxCell id="30" value="&lt;b&gt;3. テスト実行&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="370" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="• シミュレーション実行&lt;br&gt;• カバレッジデータ収集&lt;br&gt;• アサーション監視" style="text;html=1;align=left;fontSize=10;fillColor=#FFF8E1;strokeColor=#d6b656;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="425" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 4: カバレッジ分析 ========== -->
+        <mxCell id="40" value="&lt;b&gt;4. カバレッジ分析&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="370" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="• カバレッジレポート生成&lt;br&gt;• 未到達ポイント特定&lt;br&gt;• カバレッジホール分析" style="text;html=1;align=left;fontSize=10;fillColor=#F3E5F5;strokeColor=#9673a6;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="425" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 判定: 目標達成? ========== -->
+        <mxCell id="50" value="&lt;b&gt;目標達成？&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="230" width="170" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 5: テスト改善 ========== -->
+        <mxCell id="60" value="&lt;b&gt;5. テスト改善&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#FF8C00;fontSize=14;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="255" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="• 制約の調整/追加&lt;br&gt;• directed test 追加&lt;br&gt;• 新シナリオ作成" style="text;html=1;align=left;fontSize=10;fillColor=#FFF3E0;strokeColor=#FF8C00;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="310" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Step 6: 検証完了 ========== -->
+        <mxCell id="70" value="&lt;b&gt;6. 検証完了&lt;/b&gt;&lt;br&gt;カバレッジ目標達成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2e7d32;fontSize=14;fontStyle=1;shadow=1;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="515" y="90" width="220" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ========== フロー矢印 ========== -->
+        <!-- Step1 → Step2 -->
+        <mxCell id="80" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;endArrow=classic;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Step2 → Step3 -->
+        <mxCell id="81" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;endArrow=classic;" edge="1" source="20" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Step3 → Step4 -->
+        <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;endArrow=classic;" edge="1" source="30" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="395" />
+              <mxPoint x="400" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Step4 → 判定 -->
+        <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;endArrow=classic;" edge="1" source="40" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 判定 → YES → 完了 -->
+        <mxCell id="84" value="&lt;b&gt;YES&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#2e7d32;endArrow=classic;fontSize=12;fontColor=#2e7d32;" edge="1" source="50" target="70" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 判定 → NO → テスト改善 -->
+        <mxCell id="85" value="&lt;b&gt;NO&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#b85450;endArrow=classic;fontSize=12;fontColor=#b85450;" edge="1" source="50" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- テスト改善 → テスト計画(ループバック) -->
+        <mxCell id="86" value="ループ" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#FF8C00;endArrow=classic;dashed=1;fontSize=10;fontColor=#FF8C00;" edge="1" source="60" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="210" />
+              <mxPoint x="225" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ========== カバレッジ種別サマリ ========== -->
+        <mxCell id="90" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="100" y="520" width="900" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="91" value="&lt;b&gt;カバレッジの種類&lt;/b&gt;" style="text;html=1;align=center;fontSize=14;fontColor=#333333;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="525" width="300" height="25" as="geometry" />
+        </mxCell>
+        <!-- コードカバレッジ -->
+        <mxCell id="92" value="&lt;b&gt;コードカバレッジ&lt;/b&gt;&lt;br&gt;（自動収集）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="555" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="93" value="Line / Branch / Condition&lt;br&gt;Toggle / FSM" style="text;html=1;align=center;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="120" y="598" width="150" height="30" as="geometry" />
+        </mxCell>
+        <!-- 機能カバレッジ -->
+        <mxCell id="94" value="&lt;b&gt;機能カバレッジ&lt;/b&gt;&lt;br&gt;（ユーザ定義）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="555" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="95" value="covergroup / coverpoint&lt;br&gt;bins / cross" style="text;html=1;align=center;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="320" y="598" width="150" height="30" as="geometry" />
+        </mxCell>
+        <!-- アサーションカバレッジ -->
+        <mxCell id="96" value="&lt;b&gt;アサーションカバレッジ&lt;/b&gt;&lt;br&gt;（SVA連携）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="555" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="97" value="cover property&lt;br&gt;cover sequence" style="text;html=1;align=center;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="598" width="170" height="30" as="geometry" />
+        </mxCell>
+        <!-- クロスカバレッジ -->
+        <mxCell id="98" value="&lt;b&gt;クロスカバレッジ&lt;/b&gt;&lt;br&gt;（組み合わせ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="555" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="99" value="複数coverpointの&lt;br&gt;直積組み合わせ" style="text;html=1;align=center;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="740" y="598" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

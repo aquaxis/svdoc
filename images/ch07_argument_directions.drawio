@@ -1,0 +1,119 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15" agent="draw.io" type="device">
+  <diagram id="ch07_argument_directions" name="引数方向(input/output/inout/ref)の図">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- タイトル -->
+        <mxCell id="2" value="引数方向（Argument Directions）— input / output / inout / ref" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Caller ========== -->
+        <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="220" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;b&gt;呼び出し側&lt;br&gt;（Caller）&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#1a5276;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="140" height="50" as="geometry" />
+        </mxCell>
+        <!-- Caller変数 -->
+        <mxCell id="5" value="&lt;font face=&quot;monospace&quot;&gt;a_val&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="&lt;font face=&quot;monospace&quot;&gt;b_val&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;font face=&quot;monospace&quot;&gt;c_val&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="&lt;font face=&quot;monospace&quot;&gt;d_val&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="120" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== Task/Function ========== -->
+        <mxCell id="10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="280" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;task / function&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#7f6000;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="110" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== input ========== -->
+        <mxCell id="20" value="&lt;b&gt;input&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="190" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="値コピー" style="text;html=1;align=center;fontSize=10;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="300" y="185" width="60" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#82b366;endArrow=classic;endFill=1;" edge="1" source="5" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="呼び出し時に値がコピーされる&lt;br&gt;関数内での変更は呼び出し側に影響しない" style="text;html=1;align=left;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="190" width="250" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== output ========== -->
+        <mxCell id="30" value="&lt;b&gt;output&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="290" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="値コピー" style="text;html=1;align=center;fontSize=10;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="300" y="315" width="60" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#b85450;endArrow=classic;endFill=1;" edge="1" source="30" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="終了時に値がコピーされる&lt;br&gt;関数内で設定した値が呼び出し側に反映" style="text;html=1;align=left;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="290" width="260" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== inout ========== -->
+        <mxCell id="40" value="&lt;b&gt;inout&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="390" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="双方向コピー" style="text;html=1;align=center;fontSize=10;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="290" y="385" width="80" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#d6b656;endArrow=classic;startArrow=classic;startFill=1;endFill=1;" edge="1" source="7" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="開始時に値コピー（入力）&lt;br&gt;終了時に値コピー（出力）" style="text;html=1;align=left;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="390" width="250" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== ref ========== -->
+        <mxCell id="50" value="&lt;b&gt;ref&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="490" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="参照渡し" style="text;html=1;align=center;fontSize=10;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="485" width="60" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=3;strokeColor=#9673a6;endArrow=classic;startArrow=classic;startFill=1;endFill=1;dashed=1;dashPattern=8 4;" edge="1" source="8" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="コピーなし — 同一メモリを直接参照&lt;br&gt;変更は即座に反映（高速・大規模データ向け）" style="text;html=1;align=left;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="490" width="280" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ========== 下部サマリ ========== -->
+        <mxCell id="60" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="100" y="620" width="900" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="&lt;b&gt;使い分けの指針&lt;/b&gt;" style="text;html=1;align=left;fontSize=13;fontColor=#333333;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="625" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="&lt;b&gt;input&lt;/b&gt; — デフォルト。読み取り専用データの受け渡し" style="text;html=1;align=left;fontSize=11;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="120" y="648" width="350" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="&lt;b&gt;output&lt;/b&gt; — 結果の返却（taskで複数値を返す場合）" style="text;html=1;align=left;fontSize=11;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="120" y="668" width="350" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="&lt;b&gt;inout&lt;/b&gt; — 双方向ポート接続（ハードウェアレベル）" style="text;html=1;align=left;fontSize=11;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="520" y="648" width="350" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="&lt;b&gt;ref&lt;/b&gt; — 大規模データの効率的な受け渡し（SV固有）" style="text;html=1;align=left;fontSize=11;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="668" width="350" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
