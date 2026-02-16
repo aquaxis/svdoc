@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0">
+  <diagram name="Page-1" id="ch17_cpu_block_diagram">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;簡易CPUブロック図&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="260" height="40" as="geometry"/>
+        </mxCell>
+        <!-- program_counter (Blue) -->
+        <mxCell id="10" value="&lt;b&gt;program_counter&lt;/b&gt;&lt;br&gt;PC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <!-- inst_mem (Yellow) -->
+        <mxCell id="20" value="&lt;b&gt;inst_mem&lt;/b&gt;&lt;br&gt;命令メモリ (ROM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- control_unit (Red) -->
+        <mxCell id="30" value="&lt;b&gt;control_unit&lt;/b&gt;&lt;br&gt;制御ユニット&lt;br&gt;(Instruction Decode)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="580" y="180" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <!-- reg_file (Green) -->
+        <mxCell id="40" value="&lt;b&gt;reg_file&lt;/b&gt;&lt;br&gt;レジスタファイル&lt;br&gt;(R0-R3, 4レジスタ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="380" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <!-- alu (Purple) -->
+        <mxCell id="50" value="&lt;b&gt;alu&lt;/b&gt;&lt;br&gt;ALU&lt;br&gt;(ADD, SUB, AND, OR)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="380" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <!-- data_mem (Orange) -->
+        <mxCell id="60" value="&lt;b&gt;data_mem&lt;/b&gt;&lt;br&gt;データメモリ (RAM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="560" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- ===== Data Path Arrows (solid, thick) ===== -->
+        <!-- PC → inst_mem (address) -->
+        <mxCell id="70" value="address" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- inst_mem → control_unit (instruction) -->
+        <mxCell id="71" value="instruction" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="20" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- reg_file → ALU (operands) -->
+        <mxCell id="72" value="operands" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="40" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- ALU → reg_file (result / write-back) -->
+        <mxCell id="73" value="result" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=0;exitY=0.75;entryX=1;entryY=0.75;" edge="1" source="50" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="448"/>
+              <mxPoint x="590" y="448"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- ALU → data_mem (address/write data) -->
+        <mxCell id="74" value="addr/data" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="50" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- data_mem → reg_file (load data) -->
+        <mxCell id="75" value="load data" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" edge="1" source="60" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="595"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- ===== Control Signal Arrows (dashed, red) ===== -->
+        <!-- control_unit → PC (pc_src, pc_en) -->
+        <mxCell id="80" value="pc_src, pc_en" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#b85450;strokeWidth=1;endFill=1;dashed=1;exitX=0;exitY=0.25;entryX=0.5;entryY=0;" edge="1" source="30" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="203"/>
+              <mxPoint x="560" y="120"/>
+              <mxPoint x="160" y="120"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- control_unit → reg_file (reg_write, rd, rs1, rs2) -->
+        <mxCell id="81" value="reg_write" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#b85450;strokeWidth=1;endFill=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="30" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="320"/>
+              <mxPoint x="420" y="320"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- control_unit → ALU (alu_op) -->
+        <mxCell id="82" value="alu_op" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#b85450;strokeWidth=1;endFill=1;dashed=1;exitX=1;exitY=0.75;entryX=1;entryY=0;" edge="1" source="30" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="248"/>
+              <mxPoint x="850" y="350"/>
+              <mxPoint x="755" y="350"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- control_unit → data_mem (mem_read, mem_write) -->
+        <mxCell id="83" value="mem_read/write" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#b85450;strokeWidth=1;endFill=1;dashed=1;exitX=1;exitY=1;entryX=1;entryY=0;" edge="1" source="30" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="270"/>
+              <mxPoint x="900" y="530"/>
+              <mxPoint x="755" y="530"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Legend -->
+        <mxCell id="90" value="&lt;b&gt;凡例&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="550" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="91" value="" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="590" as="sourcePoint"/>
+            <mxPoint x="150" y="590" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="92" value="データパス" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="580" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="93" value="" style="endArrow=block;html=1;strokeColor=#b85450;strokeWidth=1;endFill=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="620" as="sourcePoint"/>
+            <mxPoint x="150" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="94" value="制御信号" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="610" width="80" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

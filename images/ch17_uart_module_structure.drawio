@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0">
+  <diagram name="Page-1" id="ch17_uart_module_structure">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;UARTモジュール構成&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="260" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Top level box: uart_top (Gray border) -->
+        <mxCell id="5" value="&lt;b&gt;uart_top&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;verticalAlign=top;strokeWidth=3;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="840" height="520" as="geometry"/>
+        </mxCell>
+        <!-- Register Interface -->
+        <mxCell id="8" value="&lt;b&gt;レジスタインターフェース&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="110" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <!-- baud_gen (Yellow) -->
+        <mxCell id="10" value="&lt;b&gt;baud_gen&lt;/b&gt;&lt;br&gt;ボーレートジェネレータ&lt;br&gt;&lt;br&gt;分周カウンタにより&lt;br&gt;tickパルス生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="430" y="200" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <!-- uart_tx (Blue) -->
+        <mxCell id="20" value="&lt;b&gt;uart_tx&lt;/b&gt;&lt;br&gt;送信モジュール&lt;br&gt;&lt;br&gt;パラレル→シリアル変換&lt;br&gt;FSM制御" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="370" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <!-- uart_rx (Green) -->
+        <mxCell id="30" value="&lt;b&gt;uart_rx&lt;/b&gt;&lt;br&gt;受信モジュール&lt;br&gt;&lt;br&gt;シリアル→パラレル変換&lt;br&gt;サンプリング制御" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="680" y="370" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <!-- TX FIFO (Orange) -->
+        <mxCell id="40" value="&lt;b&gt;uart_fifo&lt;/b&gt;&lt;br&gt;TX FIFO (8段)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="520" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- RX FIFO (Orange) -->
+        <mxCell id="50" value="&lt;b&gt;uart_fifo&lt;/b&gt;&lt;br&gt;RX FIFO (8段)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="680" y="520" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- External inputs: clk, rst_n -->
+        <mxCell id="60" value="&lt;b&gt;clk&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="61" value="&lt;b&gt;rst_n&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <!-- External: tx_data input -->
+        <mxCell id="62" value="&lt;b&gt;tx_data[7:0]&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="400" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <!-- External: rx_data output -->
+        <mxCell id="63" value="&lt;b&gt;rx_data[7:0]&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="440" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <!-- External: TXD pin -->
+        <mxCell id="64" value="&lt;b&gt;TXD&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=13;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="180" y="640" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <!-- External: RXD pin -->
+        <mxCell id="65" value="&lt;b&gt;RXD&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=13;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="820" y="640" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <!-- Arrow: clk/rst to uart_top -->
+        <mxCell id="70" value="" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="230" as="sourcePoint"/>
+            <mxPoint x="140" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="71" value="" style="endArrow=block;html=1;strokeColor=#333333;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="270" as="sourcePoint"/>
+            <mxPoint x="140" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: tx_data input -->
+        <mxCell id="72" value="" style="endArrow=block;html=1;strokeColor=#6c8ebf;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="410" as="sourcePoint"/>
+            <mxPoint x="180" y="410" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: rx_data output -->
+        <mxCell id="73" value="" style="endArrow=block;html=1;strokeColor=#82b366;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="450" as="sourcePoint"/>
+            <mxPoint x="120" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: tick signal from baud_gen to uart_tx -->
+        <mxCell id="80" value="tick" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;exitX=0;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=1;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Arrow: tick signal from baud_gen to uart_rx -->
+        <mxCell id="81" value="tick" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#d6b656;exitX=1;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=1;" edge="1" source="10" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Arrow: uart_tx to TX FIFO -->
+        <mxCell id="82" value="" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#6c8ebf;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=1;" edge="1" source="20" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Arrow: uart_rx to RX FIFO -->
+        <mxCell id="83" value="" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#82b366;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=1;" edge="1" source="30" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Arrow: TX FIFO to TXD pin -->
+        <mxCell id="84" value="" style="endArrow=block;html=1;strokeColor=#6c8ebf;strokeWidth=2;endFill=1;exitX=0.25;exitY=1;" edge="1" source="40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: RXD pin to RX FIFO -->
+        <mxCell id="85" value="" style="endArrow=block;html=1;strokeColor=#82b366;strokeWidth=2;endFill=1;entryX=0.75;entryY=1;" edge="1" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="640" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- Arrow: Register interface connections -->
+        <mxCell id="86" value="" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=1;strokeColor=#666666;dashed=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=1;" edge="1" source="8" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

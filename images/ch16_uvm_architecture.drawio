@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0">
+  <diagram name="Page-1" id="ch16_uvm">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;UVMアーキテクチャ&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="420" y="15" width="250" height="40" as="geometry"/>
+        </mxCell>
+        <!-- uvm_test (Red) -->
+        <mxCell id="10" value="&lt;b&gt;uvm_test&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="60" width="400" height="40" as="geometry"/>
+        </mxCell>
+        <!-- uvm_env (Orange) - container -->
+        <mxCell id="20" value="&lt;b&gt;uvm_env&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="920" height="350" as="geometry"/>
+        </mxCell>
+        <!-- Agent A (Yellow) - container -->
+        <mxCell id="30" value="&lt;b&gt;uvm_agent (Agent A)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="110" y="170" width="340" height="200" as="geometry"/>
+        </mxCell>
+        <!-- Agent A: Sequencer (Blue) -->
+        <mxCell id="31" value="&lt;b&gt;uvm_sequencer&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="130" y="210" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Agent A: Driver (Green) -->
+        <mxCell id="32" value="&lt;b&gt;uvm_driver&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="130" y="280" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Agent A: Monitor (Green) -->
+        <mxCell id="33" value="&lt;b&gt;uvm_monitor&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="280" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Agent B (Yellow) - container -->
+        <mxCell id="40" value="&lt;b&gt;uvm_agent (Agent B)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="170" width="340" height="200" as="geometry"/>
+        </mxCell>
+        <!-- Agent B: Sequencer (Blue) -->
+        <mxCell id="41" value="&lt;b&gt;uvm_sequencer&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="210" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Agent B: Driver (Green) -->
+        <mxCell id="42" value="&lt;b&gt;uvm_driver&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Agent B: Monitor (Green) -->
+        <mxCell id="43" value="&lt;b&gt;uvm_monitor&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Scoreboard (Purple) -->
+        <mxCell id="50" value="&lt;b&gt;uvm_scoreboard&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="860" y="200" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <!-- DUT (Gray) -->
+        <mxCell id="60" value="&lt;b&gt;DUT&lt;/b&gt;&lt;br&gt;(Design Under Test)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="530" width="480" height="70" as="geometry"/>
+        </mxCell>
+        <!-- TLM port: Sequencer → Driver (Agent A) -->
+        <mxCell id="70" value="&lt;font color=&quot;#6c8ebf&quot;&gt;TLMポート&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="31" target="32" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- TLM port: Sequencer → Driver (Agent B) -->
+        <mxCell id="71" value="&lt;font color=&quot;#6c8ebf&quot;&gt;TLMポート&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="41" target="42" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Analysis port: Monitor A → Scoreboard -->
+        <mxCell id="72" value="&lt;font color=&quot;#9673a6&quot;&gt;解析ポート&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#9673a6;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.75;" edge="1" source="33" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Analysis port: Monitor B → Scoreboard -->
+        <mxCell id="73" value="&lt;font color=&quot;#9673a6&quot;&gt;解析ポート&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#9673a6;html=1;dashed=1;exitX=1;exitY=0;entryX=0;entryY=0.25;" edge="1" source="43" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Virtual interface: Driver A ↔ DUT -->
+        <mxCell id="80" value="&lt;font color=&quot;#82b366&quot;&gt;仮想インターフェース&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" edge="1" source="32" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="500"/>
+              <mxPoint x="420" y="500"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Virtual interface: Driver B ↔ DUT -->
+        <mxCell id="81" value="&lt;font color=&quot;#82b366&quot;&gt;仮想インターフェース&lt;/font&gt;" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;html=1;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" edge="1" source="42" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="500"/>
+              <mxPoint x="660" y="500"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Monitor A observes DUT -->
+        <mxCell id="82" value="" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#82b366;html=1;dashed=1;exitX=0.15;exitY=0;entryX=0.5;entryY=1;" edge="1" source="60" target="33" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="372" y="490"/>
+              <mxPoint x="360" y="490"/>
+              <mxPoint x="360" y="340"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Monitor B observes DUT -->
+        <mxCell id="83" value="" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#82b366;html=1;dashed=1;exitX=0.85;exitY=0;entryX=0.5;entryY=1;" edge="1" source="60" target="43" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="708" y="490"/>
+              <mxPoint x="750" y="490"/>
+              <mxPoint x="750" y="340"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Test → Env arrow -->
+        <mxCell id="84" value="" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Phase note (side) -->
+        <mxCell id="90" value="&lt;b&gt;UVMフェーズ&lt;/b&gt;&lt;br&gt;&lt;br&gt;1. build_phase&lt;br&gt;   コンポーネント構築&lt;br&gt;&lt;br&gt;2. connect_phase&lt;br&gt;   ポート接続&lt;br&gt;&lt;br&gt;3. run_phase&lt;br&gt;   テスト実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="20" y="510" width="200" height="170" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

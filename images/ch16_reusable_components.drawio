@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0">
+  <diagram name="Page-1" id="ch16_reusable">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;再利用可能なコンポーネント設計の構造&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="400" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Top: Common Package (Yellow) -->
+        <mxCell id="10" value="&lt;b&gt;共通パッケージ (common_pkg)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="500" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="&lt;font face=&quot;monospace&quot;&gt;typedef enum / typedef struct / localparam&lt;/font&gt;&lt;br&gt;型定義 ・ 列挙型 ・ 定数 ・ ユーティリティ関数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="115" width="460" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Left: Interface (Blue) -->
+        <mxCell id="20" value="&lt;b&gt;インターフェース&lt;br&gt;(bus_if)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="240" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="&lt;font face=&quot;monospace&quot;&gt;interface bus_if;&lt;br&gt;  logic [W-1:0] addr;&lt;br&gt;  logic [W-1:0] data;&lt;br&gt;  logic valid, ready;&lt;br&gt;  modport master(...);&lt;br&gt;  modport slave(...);&lt;br&gt;endinterface&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <!-- Center: Parameterized Module (Green) -->
+        <mxCell id="30" value="&lt;b&gt;パラメタライズドモジュール&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="370" y="240" width="280" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="&lt;font face=&quot;monospace&quot;&gt;module fifo&lt;br&gt;  #(parameter DATA_WIDTH = 8,&lt;br&gt;    parameter ADDR_WIDTH = 4)&lt;br&gt;  (input  logic clk, rst_n,&lt;br&gt;   bus_if.slave  wr_port,&lt;br&gt;   bus_if.master rd_port);&lt;br&gt;  ...&lt;br&gt;endmodule&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="260" height="120" as="geometry"/>
+        </mxCell>
+        <!-- Right: Parameterized Class (Purple) -->
+        <mxCell id="40" value="&lt;b&gt;パラメタライズドクラス&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="720" y="240" width="280" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="41" value="&lt;font face=&quot;monospace&quot;&gt;class scoreboard&lt;br&gt;  #(type T = int);&lt;br&gt;  T expected_q[$];&lt;br&gt;  function void add(T item);&lt;br&gt;  function void check(T actual);&lt;br&gt;endclass&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="290" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <!-- Import arrows from package -->
+        <mxCell id="50" value="import" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#d6b656;html=1;dashed=1;exitX=0.2;exitY=1;entryX=0.5;entryY=0;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="51" value="import" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#d6b656;html=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="10" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="52" value="import" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#d6b656;html=1;dashed=1;exitX=0.8;exitY=1;entryX=0.5;entryY=0;" edge="1" source="10" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Interface used by module -->
+        <mxCell id="53" value="使用" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#6c8ebf;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="20" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Bottom: Project boxes (Gray) -->
+        <mxCell id="60" value="&lt;b&gt;プロジェクトA&lt;/b&gt;&lt;br&gt;FIFO (8bit, 16deep)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="510" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="61" value="&lt;b&gt;プロジェクトB&lt;/b&gt;&lt;br&gt;FIFO (32bit, 256deep)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="510" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="62" value="&lt;b&gt;プロジェクトC&lt;/b&gt;&lt;br&gt;FIFO (64bit, 1024deep)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="510" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Arrows from reusable components to projects -->
+        <mxCell id="70" value="" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#82b366;dashed=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" source="30" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="71" value="" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#82b366;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="30" target="61" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="72" value="" style="endArrow=block;endFill=1;strokeWidth=1;strokeColor=#82b366;dashed=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" source="30" target="62" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Annotation -->
+        <mxCell id="80" value="&lt;b&gt;再利用の3原則&lt;/b&gt;&lt;br&gt;1. パラメータ化 — 幅・深さを可変に&lt;br&gt;2. 型パラメータ — class #(type T) で汎用化&lt;br&gt;3. パッケージ化 — 共通定義を一元管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="610" width="580" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

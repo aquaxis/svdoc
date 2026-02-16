@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0">
+  <diagram name="Page-1" id="ch17_design_verification_flow">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;設計・検証フロー&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Step 1: 仕様策定 (Blue) -->
+        <mxCell id="10" value="&lt;b&gt;1. 仕様策定&lt;/b&gt;&lt;br&gt;インターフェース定義" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 2: アーキテクチャ設計 (Blue) -->
+        <mxCell id="20" value="&lt;b&gt;2. アーキテクチャ設計&lt;/b&gt;&lt;br&gt;モジュール分割" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 3: RTLコーディング (Green) -->
+        <mxCell id="30" value="&lt;b&gt;3. RTLコーディング&lt;/b&gt;&lt;br&gt;SystemVerilog実装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 4: テストベンチ作成 (Green) -->
+        <mxCell id="40" value="&lt;b&gt;4. テストベンチ作成&lt;/b&gt;&lt;br&gt;CRV + ダイレクトテスト" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="410" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 5: シミュレーション実行 (Yellow) -->
+        <mxCell id="50" value="&lt;b&gt;5. シミュレーション実行&lt;/b&gt;&lt;br&gt;テスト実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 6: カバレッジ収集 (Orange) -->
+        <mxCell id="60" value="&lt;b&gt;6. カバレッジ収集&lt;/b&gt;&lt;br&gt;機能/コードカバレッジ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="630" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Step 7: デバッグ・修正 (Red) -->
+        <mxCell id="70" value="&lt;b&gt;7. デバッグ・修正&lt;/b&gt;&lt;br&gt;波形解析" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="740" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Arrows between steps -->
+        <mxCell id="80" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="81" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="20" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="30" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="40" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="84" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="50" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="85" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="60" target="70" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Feedback arrow from Step 7 back to Step 3 -->
+        <mxCell id="90" value="&lt;b&gt;修正サイクル&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=2;strokeColor=#b85450;dashed=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;curved=1;" edge="1" source="70" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="775"/>
+              <mxPoint x="320" y="335"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Coverage targets on the side -->
+        <mxCell id="100" value="&lt;b&gt;カバレッジ目標&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="300" width="280" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="101" value="・コードカバレッジ: &amp;gt; 95%&lt;br&gt;  - ライン / ブランチ / 条件 / FSM&lt;br&gt;&lt;br&gt;・機能カバレッジ: &amp;gt; 100%&lt;br&gt;  - すべてのcoverpointがヒット&lt;br&gt;  - cross coverageを含む&lt;br&gt;&lt;br&gt;・アサーション: 0 violations&lt;br&gt;  - プロトコル準拠を保証" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="415" y="340" width="250" height="150" as="geometry"/>
+        </mxCell>
+        <!-- Arrow from coverage step to coverage targets -->
+        <mxCell id="110" style="edgeStyle=orthogonalEdgeStyle;strokeWidth=1;strokeColor=#999999;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.75;" edge="1" source="60" target="100" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

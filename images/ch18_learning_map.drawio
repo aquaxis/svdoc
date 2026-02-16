@@ -1,0 +1,185 @@
+<mxfile host="app.diagrams.net" modified="2026-02-16" type="device">
+  <diagram id="ch18_learning_map" name="SystemVerilog学習の全体マップ">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="SystemVerilog学習の全体マップ" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="334" y="15" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Center Hub -->
+        <mxCell id="hub" value="SystemVerilog" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=16;verticalAlign=middle;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="464" y="330" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: 基礎 (Blue, Left) -->
+        <mxCell id="basics" value="基礎" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="HDL歴史" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="330" width="150" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="開発環境" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="365" width="150" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="ツール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="400" width="150" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="b_level" value="初級 (1-3ヶ月)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="435" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: RTL設計 (Green, Top-left) -->
+        <mxCell id="rtl" value="RTL設計" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" value="データ型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="140" y="115" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="モジュール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="140" y="150" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="回路記述" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="140" y="185" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r_level" value="中級 (3-6ヶ月)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="155" y="218" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: 検証 (Yellow, Top-right) -->
+        <mxCell id="verif" value="検証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="790" y="80" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="v1" value="OOP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="810" y="115" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" value="CRV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="810" y="150" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" value="SVA / カバレッジ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="810" y="185" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="v_level" value="中級 (3-6ヶ月)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="825" y="218" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: UVM (Orange, Right) -->
+        <mxCell id="uvm" value="UVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="880" y="310" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" value="テストベンチ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="345" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" value="シーケンス" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="380" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" value="ファクトリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="415" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="u_level" value="上級 (6-12ヶ月)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="915" y="448" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: 外部連携 (Purple, Bottom-right) -->
+        <mxCell id="ext" value="外部連携" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="760" y="550" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="DPI-C" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="585" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="VPI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="620" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="C/C++" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="655" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e_level" value="上級 (6-12ヶ月)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="795" y="688" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Topic: 実践 (Red, Bottom-left) -->
+        <mxCell id="practice" value="実践" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="160" y="550" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pr1" value="プロジェクト" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="585" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="pr2" value="デバッグ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="620" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="pr3" value="性能最適化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="655" width="160" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="pr_level" value="エキスパート (1年以上)" style="text;html=1;fontSize=10;fontStyle=2;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="185" y="688" width="150" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Connections from hub to topics -->
+        <mxCell id="conn_basics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#6c8ebf;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="basics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_rtl" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.15;exitY=0.05;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="rtl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_verif" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.85;exitY=0.05;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="verif">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_uvm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d79b00;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="uvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_ext" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.85;exitY=0.95;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_practice" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.15;exitY=0.95;exitDx=0;exitDy=0;" edge="1" parent="1" source="hub" target="practice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency connections between topics -->
+        <mxCell id="dep1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#999999;dashed=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="rtl" target="verif">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1_label" value="設計知識が検証に活きる" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="430" y="100" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dep2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#999999;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="verif" target="uvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep2_label" value="検証→UVM" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="980" y="260" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dep3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#999999;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uvm" target="ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#999999;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ext" target="practice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep4_label" value="連携→実践" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="500" y="625" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Skill Level Legend -->
+        <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="740" width="350" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="スキルレベル:" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="745" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="初級" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="400" y="770" width="70" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="中級" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="480" y="770" width="70" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="上級" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="560" y="770" width="70" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="エキスパート" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="640" y="770" width="85" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
