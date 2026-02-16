@@ -546,7 +546,7 @@ VCDとFSDBの比較は以下の通りです。
 
 波形ビューワは、信号の時間変化をグラフィカルに表示し、設計の動作を直感的に理解するための不可欠なツールです。
 
-![波形デバッグフロー](/images/ch15_waveform_debug.drawio.png?v=2)
+![波形デバッグフロー](/images/ch15_waveform_debug.drawio.png)
 
 主要な波形ビューワの特徴を以下にまとめます。
 

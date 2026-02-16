@@ -8,7 +8,7 @@ title: "第16章：デザインパターンと実践"
 
 本章では、SystemVerilogにおける**デザインパターンと実践的なコーディング技法**について解説します。ソフトウェア工学で確立されたデザインパターンの考え方をハードウェア設計・検証に適用し、再利用性・保守性・信頼性の高い設計を実現する方法を学びます。RTL設計における頻出パターン（FSM、パイプライン、ハンドシェイク、FIFO、アービタ）、検証におけるテストベンチアーキテクチャパターン、再利用可能なコンポーネント設計、コーディングベストプラクティス、よくある落とし穴とアンチパターン、そしてUVM（Universal Verification Methodology）の概要まで、実践的なSystemVerilog開発に必要な知識を体系的に習得します。
 
-![デザインパターンの全体像](/images/ch16_design_patterns_overview.drawio.png?v=2)
+![デザインパターンの全体像](/images/ch16_design_patterns_overview.drawio.png)
 
 ---
 

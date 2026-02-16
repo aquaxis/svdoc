@@ -28,7 +28,7 @@ title: "第14章：SystemVerilogの高度なトピック"
 - **高い性能**: 関数呼び出しのオーバーヘッドが最小限に抑えられています
 - **双方向通信**: SVからCを呼ぶ（import）だけでなく、CからSVを呼ぶ（export）ことも可能です
 
-![DPI-Cのアーキテクチャ](/images/ch14_dpi_architecture.drawio.png?v=2)
+![DPI-Cのアーキテクチャ](/images/ch14_dpi_architecture.drawio.png)
 
 ### 14.2.2 import宣言（CをSVから呼び出す）
 
