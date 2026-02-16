@@ -815,7 +815,7 @@ static int dump_design_calltf(char *user_data) {
 
 VPIアプリケーションをシミュレータに登録するには、`vlog_startup_routines` 配列を定義します。この配列は、シミュレータがVPIライブラリをロードする際に自動的に呼び出されます。
 
-![VPIコールバックフロー](/images/ch15_vpi_callback.drawio.png)
+![VPIコールバックフロー](/images/ch15_vpi_callback.drawio.png?v=2)
 
 ```c
 #include "vpi_user.h"

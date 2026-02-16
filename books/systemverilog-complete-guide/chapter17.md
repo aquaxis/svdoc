@@ -26,7 +26,7 @@ title: "第17章：プロジェクト演習"
 6. **カバレッジ収集・分析**: 機能カバレッジとコードカバレッジの達成率を確認します
 7. **デバッグ・修正**: 不具合を発見した場合は原因を特定し修正します
 
-![設計・検証フロー](/images/ch17_design_verification_flow.drawio.png)
+![設計・検証フロー](/images/ch17_design_verification_flow.drawio.png?v=2)
 
 ### 17.2.2 検証目標の設定
 
