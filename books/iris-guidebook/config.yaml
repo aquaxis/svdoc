@@ -1,11 +1,11 @@
-title: "SystemVerilog 完全解説 入門書"
-summary: "SystemVerilogの基礎から応用まで、設計・検証・UVMを網羅的に解説する入門書"
-topics: ["systemverilog", "fpga", "asic", "hdl", "verification"]
+title: "IRIS 完全解説 入門書"
+summary: "IRISの基礎から応用まで、設計・検証を網羅的に解説する入門書"
+topics: ["iris", "fpga", "asic", "hdl", "verification"]
 published: true
 price: 0
 toc_depth: 2
 chapters:
-  - src/part1/chapter01
+  - chapter01
   - chapter02
   - chapter03
   - chapter04
