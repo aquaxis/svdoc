@@ -1,3 +1,11 @@
+---
+title: "第13章 SystemVerilogからの移行"
+---
+
+---
+title: "第13章 SystemVerilogからの移行"
+---
+
 # 第13章 SystemVerilogからの移行
 
 ## 本章のゴール
