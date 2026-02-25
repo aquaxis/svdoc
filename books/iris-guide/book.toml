@@ -1,0 +1,19 @@
+[book]
+title = "IRIS入門書"
+authors = ["IRIS Project"]
+language = "ja"
+multilingual = false
+src = "src"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/iris-hdl/iris-book"
+edit-url-template = "https://github.com/iris-hdl/iris-book/edit/main/{path}"
+
+[output.html.search]
+enable = true
+
+[output.html.fold]
+enable = true
+level = 1
