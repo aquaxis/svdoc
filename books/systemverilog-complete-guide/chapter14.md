@@ -1,8 +1,8 @@
 ---
-title: "第14章：SystemVerilogの高度なトピック"
+title: "第14章：DPI-C（Direct Programming Interface）"
 ---
 
-# 第14章：SystemVerilogの高度なトピック
+# 第14章：DPI-C（Direct Programming Interface）
 
 ## 14.1 この章で学ぶこと
 

@@ -1,569 +1,1659 @@
 ---
-title: "第18章：今後の学習リソースとまとめ"
+title: "第18章：プロジェクト演習"
 ---
 
-# 第18章：今後の学習リソースとまとめ
+# 第18章：プロジェクト演習
 
 ## 18.1 この章で学ぶこと
 
-本書の最終章となる本章では、これまでの全17章で学んだ内容を振り返り、今後の学習に向けたロードマップとリソースを紹介します。
+本章では、これまでに学んだSystemVerilogの知識を統合し、**実践的なプロジェクト演習**に取り組みます。3つのプロジェクト――UARTコントローラ、簡易CPU、SPIマスターコントローラ――を通じて、RTL設計から検証までの一連のフローを体験します。各プロジェクトでは仕様策定、RTLコーディング、テストベンチ作成、機能カバレッジの収集、デバッグまでを一貫して実施します。個々の章で学んだ技術がどのように組み合わさるかを実感し、実務に近い設計・検証スキルを身につけましょう。
 
-具体的には、以下の内容を扱います。
-
-- **本書の総復習**: 第1部から第6部までの各章で学んだ内容の要約
-- **学習ロードマップ**: キャリア目標別の推奨学習パス（RTL設計者、検証エンジニア、FPGA開発者）
-- **推奨リソース**: IEEE規格書、書籍、オンラインリソース、オープンソースツール
-- **業界のトレンド**: UVM、フォーマル検証、エミュレーション、AI支援設計など最新動向
-- **キャリアガイダンス**: ハードウェアエンジニアに求められるスキルセットと面接対策
-- **最後のメッセージ**: これからSystemVerilogエンジニアとして歩み始める読者へ
-
-本章は単なる付録ではなく、本書で得た知識を実務に活かし、さらなる成長につなげるための実践的なガイドです。
+![プロジェクト演習の全体構成](/images/ch17_project_overview.drawio.png)
 
 ---
 
-## 18.2 本書の総復習
-
-本書は全6部・18章の構成で、SystemVerilogの基礎から応用までを体系的に解説してきました。ここでは、各部・各章の要点を簡潔に振り返ります。
-
-![本書の全体構成と各部の位置づけ](/images/ch18_book_structure.drawio.png)
-
-### 18.2.1 第1部：導入と背景（第1章〜第2章）
-
-第1部では、SystemVerilogを学ぶための基盤を築きました。
-
-- **第1章：ハードウェア記述言語の進化**: Verilog-95からVerilog-2001、そしてSystemVerilog（IEEE 1800）へと至るHDLの歴史を概観しました。VHDL、SystemC、Chisel、Bluespecといった他の言語との比較を通じて、SystemVerilogが設計と検証を統合した唯一の業界標準言語であることを理解しました。
-- **第2章：開発環境とワークフロー**: 商用シミュレータ（VCS、Questa、Xcelium）とオープンソースシミュレータ（Verilator、Icarus Verilog）の特徴を比較し、コンパイル・エラボレーション・シミュレーションの3フェーズから成る実行フローを学びました。IEEE 1800規格書の読み方についても解説しました。
-
-### 18.2.2 第2部：設計（Design）編（第3章〜第6章）
-
-第2部では、SystemVerilogによるハードウェア設計の基礎を固めました。
-
-- **第3章：基本データ型とリテラル**: 4値論理（`logic`）と2値論理（`bit`）の違い、符号付き・符号なし整数型、ユーザー定義型（`typedef`、`enum`、`struct`、`union`）、定数（`parameter`、`localparam`、`const`）について学びました。
-- **第4章：配列と集合**: 静的配列、動的配列、連想配列、キューの宣言と操作方法を習得しました。パック配列とアンパック配列のメモリ配置の違い、`sort`、`find`、`sum` などの配列メソッドの活用法も学びました。
-- **第5章：組み合わせ回路と順序回路**: `always_comb`、`always_ff`、`always_latch` による明確な回路種別の記述方法、ブロッキング代入（`=`）とノンブロッキング代入（`<=`）の使い分け、`unique/priority` 修飾子の効果を理解しました。
-- **第6章：モジュールとインターフェース**: モジュールの階層設計、ポート接続の各種方法（名前付き、ドット、ワイルドカード）、そしてインターフェースによる信号のカプセル化と `modport` の活用を学びました。
-
-### 18.2.3 第3部：プログラミングと再利用（Common）編（第7章〜第8章）
-
-第3部では、設計と検証の両方で活用できる再利用可能なコードの書き方を学びました。
-
-- **第7章：タスクと関数**: タスクとファンクションの違い（時間消費の可否、戻り値の有無）、引数の受け渡し方法（`input`、`output`、`inout`、`ref`）、`automatic` 指定による再帰呼び出しの実現方法を学びました。
-- **第8章：パッケージとコンパイル単位**: パッケージによる定数・型・関数の共有、スコープ解決演算子（`::`）と `import` 文の使い方、`$unit` の概念を理解しました。
-
-### 18.2.4 第4部：検証（Verification）編（第9章〜第13章）
-
-第4部では、SystemVerilogの最も強力な特徴である検証機能を体系的に学びました。
-
-- **第9章：オブジェクト指向プログラミング（OOP）**: クラスの定義、プロパティとメソッド、`new` コンストラクタ、継承（`extends`）と多態性（`virtual`）、抽象クラス、静的メンバなど、検証環境構築の基盤となるOOP概念を習得しました。
-- **第10章：制約付きランダム検証（CRV）**: `rand`/`randc` 修飾子、制約ブロック（`constraint`）、`inside`、`dist`、`solve...before`、インライン制約（`randomize() with`）による自動テストパターン生成の手法を学びました。
-- **第11章：プロセス制御と同期**: `fork-join`、`fork-join_any`、`fork-join_none` による並列実行、`event`、`semaphore`、`mailbox` による同期制御、`wait fork`、`disable fork` によるプロセス管理を理解しました。
-- **第12章：SystemVerilog Assertions（SVA）**: 即時アサーションと並行アサーション、シーケンスとプロパティの記述方法（`##n`、`intersect`、`within`、`throughout`）、設計意図の形式的記述手法を学びました。
-- **第13章：機能カバレッジ**: `covergroup`、`coverpoint`、`cross` によるカバレッジモデルの定義、`option.at_least`、`option.goal` による目標設定、検証の網羅性を数値化する方法を習得しました。
-
-### 18.2.5 第5部：高度なシステム連携編（第14章〜第16章）
-
-第5部では、SystemVerilogと外部システムとの連携技術を学びました。
-
-- **第14章：DPI-C（Direct Programming Interface）**: `import "DPI-C"` と `export "DPI-C"` によるC/C++との関数呼び出し、データ型のマッピング、Cリファレンスモデルとの一致比較検証の方法を学びました。
-- **第15章：VPIとデバッグ技法**: VPI（Verilog Procedural Interface）によるC言語からのシミュレーション操作、カスタムシステムタスクの作成、`$display` 系タスクから波形解析・アサーションベースデバッグまでの体系的なデバッグ手法を習得しました。
-- **第16章：標準検証メソドロジ（UVMの基礎）**: UVMの基本アーキテクチャ、Driver・Monitor・Scoreboard・Sequencer・Agent・Envなどの主要コンポーネント、`build_phase`・`run_phase` などのフェーズ管理を理解しました。
-
-### 18.2.6 第6部：実装・運用編（第17章〜第18章）
-
-第6部では、設計と検証の知識を実務で活用するための実践的な内容を扱いました。
-
-- **第17章：合成（Synthesis）とタイミング**: 合成可能なSystemVerilogのサブセット、セットアップ・ホールド時間とSV記述の関係、UPF（Unified Power Format）による低消費電力設計の基礎を学びました。
-- **第18章（本章）**: 本書の総復習と今後の学習リソースを提供しています。
-
----
-
-## 18.3 キャリア目標別 学習ロードマップ
-
-本書で学んだ知識を基盤として、さらに専門性を深めるための学習パスを、主要なキャリア目標別に示します。
-
-![キャリア別学習ロードマップ](/images/ch18_learning_roadmap.drawio.png)
-
-### 18.3.1 RTL設計エンジニアを目指す方
-
-RTL設計エンジニアは、SystemVerilogを使ってASICやSoCの論理回路を設計する専門家です。
-
-**ステップ1：基礎固め（本書の内容）**
-
-- 第2部（第3章〜第6章）の設計編を徹底的に復習します
-- 第7章〜第8章のタスク・関数・パッケージの知識を確実にします
-- 第17章の合成とタイミングの知識を深めます
-
-**ステップ2：設計スキルの強化**
-
-- **RTLコーディングスタイル**: 合成ツールに優しい記述パターンの習得
-- **クロックドメインクロッシング（CDC）**: 異なるクロックドメイン間のデータ転送手法
-- **FIFOとハンドシェイク**: 非同期インターフェースの設計技法
-- **パイプライン設計**: スループット向上のためのパイプラインステージの挿入
-- **ステートマシン設計**: 複雑な制御ロジックのFSM実装パターン
-
-**ステップ3：ツールの習熟**
-
-- **論理合成ツール**: Synopsys Design Compiler、Cadence Genus
-- **静的タイミング解析（STA）**: Synopsys PrimeTime
-- **リンター**: Synopsys SpyGlass、Cadence HAL
-- **物理設計の基礎知識**: フロアプラン、配置配線の概念理解
-
-**ステップ4：実践プロジェクト**
-
-- オープンソースのプロセッサ設計（RISC-Vなど）の読解と改良
-- AXI/AHBバスプロトコルの実装
-- 独自のSoC設計プロジェクト
-
-### 18.3.2 検証エンジニアを目指す方
-
-検証エンジニアは、設計の正しさを検証するテスト環境の構築と実行を担当します。近年、最も需要が高い職種の一つです。
-
-**ステップ1：基礎固め（本書の内容）**
-
-- 第4部（第9章〜第13章）の検証編を徹底的に復習します
-- 第15章のデバッグ技法、第16章のUVM基礎を確実にします
-
-**ステップ2：UVMの本格的な習得**
-
-- **UVMクラスライブラリの全体像**: Factory、Config DB、TLMポートの詳細
-- **シーケンスの高度な技法**: Virtual Sequence、Sequence Library
-- **レジスタモデル（RAL）**: UVM Register Abstraction Layer
-- **スコアボード設計**: 複雑なプロトコルの自動比較検証
-
-**ステップ3：フォーマル検証**
-
-- **プロパティ検証**: SVAを用いたフォーマルプロパティチェック
-- **等価性検証**: RTLとゲートネットリストの等価性確認
-- **フォーマルツール**: Synopsys VC Formal、Cadence JasperGold、Siemens Questa Formal
-
-**ステップ4：先端検証技術**
-
-- **エミュレーション**: Synopsys ZeBu、Cadence Palladium、Siemens Veloce
-- **ポータブル・スティミュラス**: Accellera PSS（Portable Stimulus Standard）
-- **Pythonベース検証**: cocotb フレームワーク
-
-### 18.3.3 FPGA開発エンジニアを目指す方
-
-FPGA開発エンジニアは、FPGAデバイスにハードウェアロジックを実装し、プロトタイピングや量産製品の開発を行います。
-
-**ステップ1：基礎固め（本書の内容）**
-
-- 第2部（第3章〜第6章）の設計編を中心に学習します
-- 第5章の組み合わせ回路・順序回路の設計パターンに精通します
-
-**ステップ2：FPGAアーキテクチャの理解**
-
-- **LUT、FF、ブロックRAM、DSPスライス**: FPGAの基本構成要素
-- **クロック管理**: PLL/MMCM の設定と制約
-- **I/O規格**: LVCMOS、LVDS、SerDesなどの入出力設定
-- **ベンダ固有のプリミティブ**: Xilinx/AMD、Intel/Altera の専用リソース
-
-**ステップ3：FPGA開発ツールの習熟**
-
-- **Xilinx/AMD Vivado**: 合成、実装、ビットストリーム生成
-- **Intel/Altera Quartus Prime**: Intelデバイス向け開発フロー
-- **タイミング制約**: SDC（Synopsys Design Constraints）の記述方法
-- **オンチップデバッグ**: ILA（Integrated Logic Analyzer）、SignalTap
-
-**ステップ4：実践プロジェクト**
-
-- UART、SPI、I2C などのシリアル通信プロトコルの実装
-- 画像処理パイプラインの構築
-- PCIe、Ethernet などの高速通信インターフェースの実装
-- 組み込みプロセッサ（MicroBlaze、Nios II）との連携
-
----
-
-## 18.4 推奨学習リソース
-
-### 18.4.1 IEEE 1800 標準規格
-
-SystemVerilogの最も信頼性の高い一次情報源は、IEEE標準規格そのものです。
-
-| 規格番号 | 名称 | 説明 |
-|---------|------|------|
-| IEEE 1800-2017 | IEEE Standard for SystemVerilog | 現行の最新規格。言語仕様の完全な定義 |
-| IEEE 1800-2023 | IEEE Standard for SystemVerilog (Draft) | 次期規格の策定が進行中 |
-| IEEE 1800.2-2020 | UVM Reference Implementation | UVMの標準リファレンス実装 |
-
-- **入手方法**: IEEE Xplore（https://ieeexplore.ieee.org/）から購入可能です。IEEE-SA（Standards Association）の会員であれば無料でアクセスできる場合があります
-- **活用のコツ**: 規格書は1,300ページ以上ありますが、全文を通読する必要はありません。目次とインデックスを活用し、必要な箇所をリファレンスとして参照する使い方が効果的です
-
-### 18.4.2 推奨書籍
-
-SystemVerilogおよび関連技術を学ぶための優良な書籍を紹介します。
-
-**設計向け書籍**
-
-- **Stuart Sutherland, "RTL Modeling with SystemVerilog for Simulation and Synthesis"**: SystemVerilogによるRTL設計に特化した実践的な書籍です。合成可能なコーディングパターンが豊富に紹介されています
-- **Stuart Sutherland, Simon Davidmann, Peter Flake, "SystemVerilog for Design"**: SystemVerilogの設計側の機能に焦点を当てた定番書です。Verilogからの移行ガイドとしても優れています
-
-**検証向け書籍**
-
-- **Chris Spear, Greg Tumbush, "SystemVerilog for Verification"**: 検証エンジニアのバイブルとも言える書籍です。CRV、OOP、機能カバレッジ、アサーションなどを網羅的に解説しています。第3版が最新です
-- **Kathleen Meade, Sharon Rosenberg, "A Practical Guide to Adopting the Universal Verification Methodology (UVM)"**: UVMの実践的な導入ガイドです。段階的にUVM環境を構築する方法が解説されています
-- **Ray Salemi, "The UVM Primer"**: UVM入門者に最適な書籍です。豊富な例題とともにUVMの基本概念を丁寧に解説しています
-- **Vanessa Cooper, "Advanced Verification Topics"**: フォーマル検証、エミュレーション、低消費電力検証など、高度な検証トピックをカバーしています
-
-**アサーション向け書籍**
-
-- **Ben Cohen, Srinivasan Venkataramanan, Ajeetha Kumari, Lisa Piper, "SystemVerilog Assertions and Functional Coverage"**: SVAと機能カバレッジに特化した詳細な解説書です
-- **Ashok Mehta, "SystemVerilog Assertions and Functional Coverage"**: アサーションの実践的な活用パターンを多数紹介しています
-
-### 18.4.3 オンラインリソースとチュートリアル
-
-インターネット上には、SystemVerilogを学ぶための優れた無料リソースが多数存在します。
-
-**チュートリアルサイト**
-
-- **Doulos - SystemVerilog Golden Reference Guide**: SystemVerilogの構文リファレンスとして定評があります（https://www.doulos.com/）
-- **Verification Academy（Siemens EDA）**: UVMを含む検証技術の包括的な学習プラットフォームです。ビデオ講座、クイズ、演習問題が充実しています（https://verificationacademy.com/）
-- **ChipVerify**: SystemVerilogとUVMのチュートリアルが体系的にまとめられています（https://www.chipverify.com/）
-- **ASIC World**: Verilog/SystemVerilogの基礎的なリファレンスサイトです（https://www.asic-world.com/）
-- **Verification Guide**: テストベンチの実装パターンを多数紹介しています（https://verificationguide.com/）
-
-**コミュニティとフォーラム**
-
-- **Stack Overflow（systemverilogタグ）**: 具体的な疑問を質問・検索できます
-- **Accellera Forums**: SystemVerilog/UVMの標準化団体によるオフィシャルフォーラムです
-- **Reddit（r/FPGA、r/chipdesign）**: FPGA開発やチップ設計に関する活発なコミュニティです
-- **EDA Playground（https://www.edaplayground.com/）**: ブラウザ上でSystemVerilogのコードを実行できる無料のオンライン環境です。各種シミュレータ（Aldec Riviera-PRO、Synopsys VCS、Cadence Xceliumなど）が利用可能です
-
-**動画コンテンツ**
-
-- **VLSI System Design (VSD)**: SystemVerilogと物理設計のオンラインコースを提供しています
-- **Nandland (YouTube)**: FPGA初心者向けの分かりやすい動画チュートリアルです
-- **Doulos YouTube Channel**: SystemVerilog/UVMの技術セミナーの録画が公開されています
-
-### 18.4.4 オープンソースツール
-
-商用ツールは高価ですが、個人学習や小規模プロジェクトではオープンソースツールが非常に有用です。
-
-| ツール名 | 用途 | 特徴 |
-|---------|------|------|
-| **Verilator** | シミュレーション（合成可能サブセット） | 高速なサイクルベースシミュレータ。C++/SystemCモデルとの統合が容易。リンターとしても利用可能 |
-| **Icarus Verilog (iverilog)** | シミュレーション | Verilog-2005の大部分とSystemVerilogの一部をサポート。学習用途に最適 |
-| **Yosys** | 論理合成 | オープンソースの論理合成フレームワーク。FPGAおよびASICフローに対応 |
-| **GTKWave** | 波形表示 | VCD、FST、LXTなど各種波形フォーマットに対応した波形ビューワ |
-| **Surfer** | 波形表示 | Rust製の高速な波形ビューワ。VCD、FST形式に対応 |
-| **cocotb** | Python検証フレームワーク | Pythonでテストベンチを記述可能。複数のシミュレータに対応 |
-| **sv-parser** | SystemVerilog解析 | Rust製のSystemVerilogパーサー。ツール開発に利用可能 |
-| **slang** | SystemVerilogコンパイラ | C++製の高品質なSystemVerilogフロントエンド。IEEE 1800-2017に高い準拠度を持つ |
-
-**ツールのインストール例（Ubuntu/Debian）**
-
-```bash
-# Verilator のインストール
-sudo apt-get install verilator
-
-# Icarus Verilog のインストール
-sudo apt-get install iverilog
-
-# GTKWave のインストール
-sudo apt-get install gtkwave
-
-# Yosys のインストール
-sudo apt-get install yosys
-
-# cocotb のインストール（Python環境が必要）
-pip install cocotb
+## 18.2 プロジェクト演習の進め方
+
+### 18.2.1 設計・検証フローの概要
+
+各プロジェクトは以下のフローに従って進めます。
+
+1. **仕様策定**: 機能仕様を明確化し、インターフェースを定義します
+2. **アーキテクチャ設計**: モジュール分割とデータパスを決定します
+3. **RTLコーディング**: SystemVerilogで各モジュールを実装します
+4. **テストベンチ作成**: 制約付きランダムテストとダイレクトテストを構築します
+5. **シミュレーション実行**: テストを実行し、波形とログで動作を確認します
+6. **カバレッジ収集・分析**: 機能カバレッジとコードカバレッジの達成率を確認します
+7. **デバッグ・修正**: 不具合を発見した場合は原因を特定し修正します
+
+![設計・検証フロー](/images/ch17_design_verification_flow.drawio.png)
+
+### 18.2.2 検証目標の設定
+
+プロジェクト演習では、以下のカバレッジ目標を設定します。
+
+| カバレッジ種類 | 目標値 | 説明 |
+|--------------|--------|------|
+| **コードカバレッジ（行）** | 95%以上 | RTLコードの行がどれだけ実行されたか |
+| **コードカバレッジ（分岐）** | 90%以上 | if/case文のすべての分岐が通過したか |
+| **機能カバレッジ** | 100% | 仕様上の検証シナリオをすべて網羅したか |
+| **アサーション成功率** | 100% | すべてのアサーションが違反なしで完了したか |
+
+### 18.2.3 ファイル構成の推奨
+
+各プロジェクトで以下のディレクトリ構成を推奨します。
+
+```
+project_name/
+├── rtl/                  # RTLソースファイル
+│   ├── top_module.sv
+│   └── sub_modules.sv
+├── tb/                   # テストベンチ
+│   ├── tb_top.sv
+│   ├── env.sv
+│   └── test.sv
+├── sim/                  # シミュレーション用スクリプト
+│   └── Makefile
+└── doc/                  # 仕様書・設計メモ
+    └── spec.md
 ```
 
-### 18.4.5 FPGA開発ボード
+---
 
-実際のハードウェアで動作を確認することは、学習効果を飛躍的に高めます。代表的な学習用FPGA開発ボードを紹介します。
+## 18.3 プロジェクト1：UARTコントローラ
 
-| ボード名 | FPGAデバイス | 価格帯 | 特徴 |
-|---------|------------|-------|------|
-| **Digilent Basys 3** | Xilinx Artix-7 | 約2万円 | 大学教育で最も広く使われるボード。スイッチ、LED、7セグメントディスプレイが充実 |
-| **Digilent Arty A7** | Xilinx Artix-7 | 約2万円 | Arduino互換ヘッダを搭載。IoTプロトタイピングに最適 |
-| **Terasic DE10-Lite** | Intel MAX 10 | 約1万円 | 低価格で入手しやすい。加速度センサーを内蔵 |
-| **Terasic DE1-SoC** | Intel Cyclone V SoC | 約3万円 | ARM Cortex-A9搭載のSoC FPGA。組み込みLinuxとの連携学習が可能 |
-| **Digilent Nexys Video** | Xilinx Artix-7 | 約5万円 | HDMI入出力、Ethernet搭載。映像処理やネットワーク系プロジェクトに最適 |
-| **SiPeed Tang Nano 9K** | Gowin GW1NR-9 | 約3千円 | 超低価格のFPGAボード。オープンソースツールチェーンで開発可能 |
-| **Lattice iCEstick** | Lattice iCE40 | 約3千円 | Yosys/nextpnrによる完全オープンソースフローに対応 |
+### 18.3.1 UARTの仕様
+
+**UART（Universal Asynchronous Receiver/Transmitter）**は、非同期シリアル通信の標準的なインターフェースです。本プロジェクトでは以下の仕様でUARTコントローラを設計します。
+
+- **データ幅**: 8ビット
+- **ボーレート**: 9600 / 115200 bps（パラメータで切り替え可能）
+- **パリティ**: なし / 偶数 / 奇数（設定可能）
+- **ストップビット**: 1ビット
+- **FIFO**: 送信・受信それぞれ8段のFIFO
+- **クロック周波数**: 50 MHz
+
+![UARTフレームフォーマット](/images/ch17_uart_frame_format.drawio.png)
+
+UARTフレームは以下の構成です。
+
+| フィールド | ビット数 | 説明 |
+|-----------|---------|------|
+| **スタートビット** | 1 | 常に0（通信開始を示す） |
+| **データビット** | 8 | LSBファースト |
+| **パリティビット** | 0または1 | 偶数/奇数パリティ |
+| **ストップビット** | 1 | 常に1（通信終了を示す） |
+
+### 18.3.2 モジュール構成
+
+UARTコントローラは以下のサブモジュールで構成します。
+
+- **uart_top**: トップモジュール（TX/RXの統合とレジスタインターフェース）
+- **uart_tx**: 送信モジュール
+- **uart_rx**: 受信モジュール
+- **baud_gen**: ボーレートジェネレータ
+- **uart_fifo**: 送信/受信用FIFO
+
+![UARTモジュール構成](/images/ch17_uart_module_structure.drawio.png)
+
+### 18.3.3 ボーレートジェネレータ
+
+ボーレートジェネレータは、システムクロックを分周してUART通信のタイミング信号を生成します。
+
+```systemverilog
+module baud_gen #(
+    parameter int CLK_FREQ  = 50_000_000,  // システムクロック周波数
+    parameter int BAUD_RATE = 115200        // ボーレート
+)(
+    input  logic clk,
+    input  logic rst_n,
+    output logic tick        // ボーレートタイミング信号
+);
+
+    // 分周カウンタの上限値を計算
+    localparam int DIVISOR = CLK_FREQ / (BAUD_RATE * 16);
+    localparam int CNT_WIDTH = $clog2(DIVISOR);
+
+    logic [CNT_WIDTH-1:0] counter;
+
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            counter <= '0;
+            tick    <= 1'b0;
+        end else if (counter == DIVISOR - 1) begin
+            counter <= '0;
+            tick    <= 1'b1;  // 1クロック幅のパルス
+        end else begin
+            counter <= counter + 1'b1;
+            tick    <= 1'b0;
+        end
+    end
+
+endmodule
+```
+
+### 18.3.4 UART送信モジュール
+
+送信モジュールは、パラレルデータをシリアルに変換して出力します。
+
+```systemverilog
+module uart_tx #(
+    parameter int DATA_BITS = 8  // データビット数
+)(
+    input  logic                 clk,
+    input  logic                 rst_n,
+    input  logic                 tick,       // ボーレートtick
+    input  logic                 tx_start,   // 送信開始信号
+    input  logic [DATA_BITS-1:0] tx_data,    // 送信データ
+    output logic                 tx,         // シリアル出力
+    output logic                 tx_busy     // 送信中フラグ
+);
+
+    // 送信ステートマシン
+    typedef enum logic [2:0] {
+        IDLE,       // アイドル状態
+        START,      // スタートビット送信
+        DATA,       // データビット送信
+        PARITY,     // パリティビット送信（未使用時スキップ）
+        STOP        // ストップビット送信
+    } tx_state_t;
+
+    tx_state_t state, next_state;
+
+    logic [3:0]          tick_cnt;    // 16倍オーバーサンプリングカウンタ
+    logic [2:0]          bit_cnt;     // 送信ビットカウンタ
+    logic [DATA_BITS-1:0] shift_reg;  // シフトレジスタ
+
+    // 状態遷移（順序回路）
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            state <= IDLE;
+        else
+            state <= next_state;
+    end
+
+    // 次状態論理（組み合わせ回路）
+    always_comb begin
+        next_state = state;
+        case (state)
+            IDLE: begin
+                if (tx_start)
+                    next_state = START;
+            end
+            START: begin
+                if (tick && tick_cnt == 4'd15)
+                    next_state = DATA;
+            end
+            DATA: begin
+                if (tick && tick_cnt == 4'd15 && bit_cnt == DATA_BITS - 1)
+                    next_state = STOP;
+            end
+            STOP: begin
+                if (tick && tick_cnt == 4'd15)
+                    next_state = IDLE;
+            end
+            default: next_state = IDLE;
+        endcase
+    end
+
+    // データパス（カウンタ・シフトレジスタ制御）
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            tx        <= 1'b1;   // アイドル時はHigh
+            tick_cnt  <= '0;
+            bit_cnt   <= '0;
+            shift_reg <= '0;
+            tx_busy   <= 1'b0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    tx      <= 1'b1;
+                    tx_busy <= 1'b0;
+                    if (tx_start) begin
+                        shift_reg <= tx_data;
+                        tx_busy   <= 1'b1;
+                    end
+                end
+                START: begin
+                    tx <= 1'b0;  // スタートビット = 0
+                    if (tick)
+                        tick_cnt <= tick_cnt + 1'b1;
+                end
+                DATA: begin
+                    tx <= shift_reg[0];  // LSBから送信
+                    if (tick) begin
+                        tick_cnt <= tick_cnt + 1'b1;
+                        if (tick_cnt == 4'd15) begin
+                            shift_reg <= shift_reg >> 1;
+                            bit_cnt   <= bit_cnt + 1'b1;
+                        end
+                    end
+                end
+                STOP: begin
+                    tx <= 1'b1;  // ストップビット = 1
+                    if (tick) begin
+                        tick_cnt <= tick_cnt + 1'b1;
+                        if (tick_cnt == 4'd15) begin
+                            tick_cnt <= '0;
+                            bit_cnt  <= '0;
+                        end
+                    end
+                end
+            endcase
+        end
+    end
+
+endmodule
+```
+
+### 18.3.5 UART受信モジュール
+
+受信モジュールは、シリアル入力をパラレルデータに変換します。16倍オーバーサンプリングにより、ビットの中央でデータをサンプリングします。
+
+```systemverilog
+module uart_rx #(
+    parameter int DATA_BITS = 8  // データビット数
+)(
+    input  logic                 clk,
+    input  logic                 rst_n,
+    input  logic                 tick,       // ボーレートtick
+    input  logic                 rx,         // シリアル入力
+    output logic [DATA_BITS-1:0] rx_data,    // 受信データ
+    output logic                 rx_valid    // 受信完了信号
+);
+
+    typedef enum logic [1:0] {
+        IDLE,    // アイドル状態
+        START,   // スタートビット検出
+        DATA,    // データ受信中
+        STOP     // ストップビット確認
+    } rx_state_t;
+
+    rx_state_t state, next_state;
+
+    logic [3:0]          tick_cnt;     // オーバーサンプリングカウンタ
+    logic [2:0]          bit_cnt;      // 受信ビットカウンタ
+    logic [DATA_BITS-1:0] shift_reg;   // シフトレジスタ
+
+    // 状態遷移
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            state <= IDLE;
+        else
+            state <= next_state;
+    end
+
+    // 次状態論理
+    always_comb begin
+        next_state = state;
+        case (state)
+            IDLE: begin
+                if (~rx)  // スタートビット（Low）検出
+                    next_state = START;
+            end
+            START: begin
+                if (tick && tick_cnt == 4'd7) begin
+                    if (~rx)
+                        next_state = DATA;  // ビット中央で確認
+                    else
+                        next_state = IDLE;  // ノイズと判断
+                end
+            end
+            DATA: begin
+                if (tick && tick_cnt == 4'd15 && bit_cnt == DATA_BITS - 1)
+                    next_state = STOP;
+            end
+            STOP: begin
+                if (tick && tick_cnt == 4'd15)
+                    next_state = IDLE;
+            end
+        endcase
+    end
+
+    // データパス
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            tick_cnt  <= '0;
+            bit_cnt   <= '0;
+            shift_reg <= '0;
+            rx_data   <= '0;
+            rx_valid  <= 1'b0;
+        end else begin
+            rx_valid <= 1'b0;  // デフォルトでLow
+            case (state)
+                IDLE: begin
+                    tick_cnt <= '0;
+                    bit_cnt  <= '0;
+                end
+                START: begin
+                    if (tick)
+                        tick_cnt <= tick_cnt + 1'b1;
+                    if (tick && tick_cnt == 4'd7)
+                        tick_cnt <= '0;
+                end
+                DATA: begin
+                    if (tick) begin
+                        tick_cnt <= tick_cnt + 1'b1;
+                        if (tick_cnt == 4'd15) begin
+                            // ビット中央（8カウント目）でサンプリング
+                            shift_reg <= {rx, shift_reg[DATA_BITS-1:1]};
+                            bit_cnt   <= bit_cnt + 1'b1;
+                        end
+                    end
+                end
+                STOP: begin
+                    if (tick && tick_cnt == 4'd15) begin
+                        rx_data  <= shift_reg;  // 受信データを出力
+                        rx_valid <= 1'b1;       // 受信完了
+                    end
+                    if (tick)
+                        tick_cnt <= tick_cnt + 1'b1;
+                end
+            endcase
+        end
+    end
+
+endmodule
+```
+
+### 18.3.6 UARTテストベンチ
+
+制約付きランダムテストを用いたテストベンチです。送信データをランダムに生成し、ループバック接続（TX出力をRX入力に接続）で正しく受信できることを確認します。
+
+```systemverilog
+module tb_uart;
+
+    // パラメータ
+    localparam int CLK_FREQ  = 50_000_000;
+    localparam int BAUD_RATE = 115200;
+    localparam int DATA_BITS = 8;
+
+    // 信号宣言
+    logic clk, rst_n;
+    logic tx_start;
+    logic [DATA_BITS-1:0] tx_data;
+    logic tx_serial;        // TX→RXループバック
+    logic [DATA_BITS-1:0] rx_data;
+    logic rx_valid;
+    logic tx_busy;
+    logic tick;
+
+    // クロック生成（50MHz = 20ns周期）
+    initial clk = 0;
+    always #10 clk = ~clk;
+
+    // DUTインスタンス化
+    baud_gen #(
+        .CLK_FREQ(CLK_FREQ),
+        .BAUD_RATE(BAUD_RATE)
+    ) u_baud (
+        .clk(clk), .rst_n(rst_n), .tick(tick)
+    );
+
+    uart_tx #(.DATA_BITS(DATA_BITS)) u_tx (
+        .clk(clk), .rst_n(rst_n), .tick(tick),
+        .tx_start(tx_start), .tx_data(tx_data),
+        .tx(tx_serial), .tx_busy(tx_busy)
+    );
+
+    uart_rx #(.DATA_BITS(DATA_BITS)) u_rx (
+        .clk(clk), .rst_n(rst_n), .tick(tick),
+        .rx(tx_serial),  // ループバック接続
+        .rx_data(rx_data), .rx_valid(rx_valid)
+    );
+
+    // カバレッジグループ
+    covergroup uart_cov @(posedge clk);
+        // 送信データの値域カバレッジ
+        tx_data_cp: coverpoint tx_data {
+            bins zero     = {8'h00};
+            bins low      = {[8'h01:8'h3F]};
+            bins mid      = {[8'h40:8'hBF]};
+            bins high     = {[8'hC0:8'hFE]};
+            bins all_ones = {8'hFF};
+        }
+        // 受信完了のカバレッジ
+        rx_valid_cp: coverpoint rx_valid;
+    endgroup
+
+    uart_cov cov = new();
+
+    // テストシーケンス
+    int pass_count = 0;
+    int fail_count = 0;
+
+    task automatic send_and_check(input logic [DATA_BITS-1:0] data);
+        // 送信開始
+        @(posedge clk);
+        tx_data  = data;
+        tx_start = 1'b1;
+        @(posedge clk);
+        tx_start = 1'b0;
+
+        // 受信完了を待機
+        wait (rx_valid);
+        @(posedge clk);
+
+        // 結果チェック
+        if (rx_data === data) begin
+            pass_count++;
+            $display("[PASS] TX=0x%02h, RX=0x%02h", data, rx_data);
+        end else begin
+            fail_count++;
+            $error("[FAIL] TX=0x%02h, RX=0x%02h", data, rx_data);
+        end
+
+        // 次の送信まで待機
+        wait (!tx_busy);
+        repeat (100) @(posedge clk);
+    endtask
+
+    initial begin
+        // リセット
+        rst_n    = 1'b0;
+        tx_start = 1'b0;
+        tx_data  = '0;
+        repeat (10) @(posedge clk);
+        rst_n = 1'b1;
+        repeat (10) @(posedge clk);
+
+        // ダイレクトテスト（境界値）
+        $display("=== ダイレクトテスト ===");
+        send_and_check(8'h00);
+        send_and_check(8'hFF);
+        send_and_check(8'hA5);
+        send_and_check(8'h5A);
+
+        // ランダムテスト
+        $display("=== ランダムテスト ===");
+        for (int i = 0; i < 50; i++) begin
+            logic [DATA_BITS-1:0] random_data;
+            assert(std::randomize(random_data));
+            send_and_check(random_data);
+        end
+
+        // 結果サマリ
+        $display("=================================");
+        $display("PASS: %0d, FAIL: %0d", pass_count, fail_count);
+        $display("=================================");
+
+        if (fail_count == 0)
+            $display("ALL TESTS PASSED");
+        else
+            $fatal(1, "SOME TESTS FAILED");
+
+        $finish;
+    end
+
+endmodule
+```
+
+### 18.3.7 期待される結果
+
+テストが正常に完了すると、以下のような出力が得られます。
+
+```
+=== ダイレクトテスト ===
+[PASS] TX=0x00, RX=0x00
+[PASS] TX=0xff, RX=0xff
+[PASS] TX=0xa5, RX=0xa5
+[PASS] TX=0x5a, RX=0x5a
+=== ランダムテスト ===
+[PASS] TX=0x3c, RX=0x3c
+[PASS] TX=0x87, RX=0x87
+...（省略）...
+=================================
+PASS: 54, FAIL: 0
+=================================
+ALL TESTS PASSED
+```
 
 ---
 
-## 18.5 業界の最新トレンド
+## 18.4 プロジェクト2：簡易CPU設計
 
-SystemVerilogを取り巻く半導体業界の検証・設計技術は、日々進化を続けています。ここでは、エンジニアとして押さえておくべき最新トレンドを紹介します。
+### 18.4.1 命令セットアーキテクチャ（ISA）
 
-![検証技術の進化とトレンド](/images/ch18_industry_trends.drawio.png)
+本プロジェクトでは、8ビットの簡易CPUを設計します。教育目的のシンプルなアーキテクチャですが、フェッチ・デコード・実行の基本的なパイプライン概念を含みます。
 
-### 18.5.1 UVMの進化と標準化
+| 項目 | 仕様 |
+|------|------|
+| **データ幅** | 8ビット |
+| **アドレス幅** | 8ビット（256バイトメモリ） |
+| **レジスタ** | 4本の汎用レジスタ（R0～R3） |
+| **命令長** | 16ビット固定長 |
+| **アーキテクチャ** | ロード/ストア型 |
 
-UVM（Universal Verification Methodology）は、SystemVerilogベースの検証環境構築における事実上の標準です。
+命令フォーマットは以下の通りです。
 
-- **UVM 1.2 から IEEE 1800.2 へ**: UVMはAccelleraが開発したオープンソースライブラリから、IEEE 1800.2-2020 として正式にIEEE標準規格になりました。これにより、ベンダー間の互換性が向上しています
-- **UVM 2.0 の動向**: 次世代のUVM 2.0では、SystemVerilogの最新機能の活用、パフォーマンスの改善、使いやすさの向上が検討されています
-- **UVMの継続的な重要性**: 大規模SoCの検証において、UVMは依然として最も広く採用されているメソドロジです。UVMのスキルは検証エンジニアにとって必須と言えます
+```
+R型命令（レジスタ間演算）:
+[15:12] opcode | [11:10] rd | [9:8] rs1 | [7:6] rs2 | [5:0] reserved
 
-### 18.5.2 フォーマル検証の普及
+I型命令（即値付き演算・メモリアクセス）:
+[15:12] opcode | [11:10] rd | [9:8] rs1 | [7:0] imm
+```
 
-フォーマル検証は、数学的手法を用いて設計の正しさを網羅的に証明する技術です。近年、その適用範囲が急速に拡大しています。
+![簡易CPU命令フォーマット](/images/ch17_cpu_instruction_format.drawio.png)
 
-- **プロパティチェック**: SVAで記述したプロパティの網羅的な検証が可能です。シミュレーションでは見つけにくいコーナーケースのバグを発見できます
-- **等価性チェック**: RTLとゲートネットリスト、またはRTLの異なるバージョン間の等価性を形式的に証明します
-- **到達可能性解析**: デッドロックやライブロックなどの状態遷移の問題を検出します
-- **セキュリティ検証**: 情報フロー解析やアクセス制御の検証に利用されるケースが増えています
-- **主要ツール**: Synopsys VC Formal、Cadence JasperGold、Siemens Questa Formal が業界をリードしています
+命令セットの一覧です。
 
-### 18.5.3 エミュレーションとプロトタイピング
+| オペコード | ニーモニック | 動作 | 型 |
+|-----------|------------|------|-----|
+| 4'b0000 | NOP | 何もしない | - |
+| 4'b0001 | ADD | rd = rs1 + rs2 | R |
+| 4'b0010 | SUB | rd = rs1 - rs2 | R |
+| 4'b0011 | AND | rd = rs1 & rs2 | R |
+| 4'b0100 | OR | rd = rs1 \| rs2 | R |
+| 4'b0101 | XOR | rd = rs1 ^ rs2 | R |
+| 4'b0110 | LOAD | rd = mem[rs1 + imm] | I |
+| 4'b0111 | STORE | mem[rs1 + imm] = rd | I |
+| 4'b1000 | ADDI | rd = rs1 + imm | I |
+| 4'b1001 | BEQ | if (rd == rs1) PC = imm | I |
+| 4'b1010 | BNE | if (rd != rs1) PC = imm | I |
+| 4'b1111 | HALT | 実行停止 | - |
 
-SoCの大規模化・複雑化に伴い、従来のソフトウェアシミュレーションでは速度が不足するケースが増えています。
+### 18.4.2 CPUモジュール構成
 
-- **ハードウェアエミュレータ**: Synopsys ZeBu、Cadence Palladium、Siemens Veloce などのハードウェアエミュレータは、シミュレーションの数百倍〜数千倍の速度で設計を実行できます
-- **FPGAプロトタイピング**: Synopsys HAPS、Cadence Protium などのFPGAベースのプロトタイピングプラットフォームは、さらに高速な検証を可能にします
-- **ソフトウェア開発の前倒し**: エミュレータやプロトタイプを使うことで、シリコン（実チップ）の完成前にファームウェアやドライバの開発・検証を開始できます（シフトレフト戦略）
-- **ハイブリッド検証**: シミュレーション、エミュレーション、フォーマル検証を組み合わせたハイブリッドアプローチが主流になりつつあります
+CPUは以下のサブモジュールで構成します。
 
-### 18.5.4 AI/ML 支援設計・検証
+- **cpu_top**: トップモジュール（各モジュールの接続）
+- **alu**: 算術論理演算ユニット
+- **reg_file**: レジスタファイル
+- **control_unit**: 制御ユニット（命令デコード・制御信号生成）
+- **program_counter**: プログラムカウンタ
+- **inst_mem**: 命令メモリ（ROM）
+- **data_mem**: データメモリ（RAM）
 
-人工知能（AI）と機械学習（ML）は、半導体設計・検証のワークフローにも革新をもたらしています。
+![簡易CPUブロック図](/images/ch17_cpu_block_diagram.drawio.png)
 
-- **AIによるテスト生成**: 機械学習モデルを用いて、カバレッジ到達を最適化するテスト刺激を自動生成する研究が進んでいます。従来のCRVでは到達困難なカバレッジホールを効率的に埋められる可能性があります
-- **バグ予測**: 設計変更の履歴やコードメトリクスからバグの発生箇所を予測するAIモデルが研究されています
-- **RTL設計の自動生成**: 大規模言語モデル（LLM）を活用して、自然言語の仕様記述からRTLコードを生成する試みが注目を集めています。ただし、生成コードの品質や検証の問題は依然として課題です
-- **EDAツールへの組み込み**: 各EDAベンダー（Synopsys、Cadence、Siemens EDA）は、自社ツールにAI/ML機能を積極的に統合しています。フロアプランの最適化、タイミングクロージャの自動化、テスト効率の向上などが実現されています
-- **チップレット（Chiplet）技術**: AI処理の需要拡大とともに、複数のダイを組み合わせてパッケージングするチップレット技術が急速に普及しています。UCIe（Universal Chiplet Interconnect Express）などの標準インターフェースの策定が進んでいます
+### 18.4.3 ALU（算術論理演算ユニット）
 
-### 18.5.5 Portable Stimulus Standard（PSS）
+```systemverilog
+module alu #(
+    parameter int WIDTH = 8  // データ幅
+)(
+    input  logic [WIDTH-1:0] a,         // オペランドA
+    input  logic [WIDTH-1:0] b,         // オペランドB
+    input  logic [3:0]       alu_op,    // 演算種別
+    output logic [WIDTH-1:0] result,    // 演算結果
+    output logic             zero_flag  // ゼロフラグ
+);
 
-Accellera が策定した Portable Stimulus Standard（PSS）は、検証の新しいパラダイムを提示しています。
+    // ALU演算コード
+    localparam logic [3:0] ALU_ADD = 4'b0001;
+    localparam logic [3:0] ALU_SUB = 4'b0010;
+    localparam logic [3:0] ALU_AND = 4'b0011;
+    localparam logic [3:0] ALU_OR  = 4'b0100;
+    localparam logic [3:0] ALU_XOR = 4'b0101;
 
-- **プラットフォーム非依存の刺激記述**: PSSでは、テストの意図（what to test）を抽象的に記述し、具体的な実装（how to test）はツールが自動生成します
-- **マルチレベル検証**: 同じテスト記述から、シミュレーション用、エミュレーション用、実チップ用のテストを自動生成できます
-- **UVMとの共存**: PSSはUVMを置き換えるものではなく、補完する技術として位置づけられています
-- **PSS 2.0**: 最新のPSS 2.0では、C++ライクな構文で記述可能になり、使いやすさが向上しています
+    always_comb begin
+        case (alu_op)
+            ALU_ADD: result = a + b;     // 加算
+            ALU_SUB: result = a - b;     // 減算
+            ALU_AND: result = a & b;     // 論理AND
+            ALU_OR:  result = a | b;     // 論理OR
+            ALU_XOR: result = a ^ b;     // 排他的OR
+            default: result = '0;        // デフォルト値
+        endcase
+    end
 
-### 18.5.6 RISC-V エコシステムの拡大
+    // ゼロフラグ：結果が0ならアサート
+    assign zero_flag = (result == '0);
 
-オープンソースの命令セットアーキテクチャであるRISC-Vの急速な普及は、SystemVerilogエンジニアにとって新たな機会を生み出しています。
+endmodule
+```
 
-- **オープンソースRTL実装**: RISC-Vプロセッサの多くはSystemVerilogで記述されており、設計の学習素材として非常に優れています
-- **検証IPの共有**: RISC-V International のもとで、検証IPやテストスイートが共有されています
-- **産業応用の拡大**: IoTデバイスからデータセンターまで、RISC-Vの採用が急速に広がっています
-- **代表的なオープンソースプロジェクト**:
-  - **CHIPS Alliance**: オープンソースのチップ設計プロジェクト群
-  - **OpenTitan**: セキュリティチップのオープンソース実装
-  - **CVA6（旧ARIANE）**: 高性能RISC-Vプロセッサ
+### 18.4.4 レジスタファイル
+
+```systemverilog
+module reg_file #(
+    parameter int WIDTH    = 8,  // データ幅
+    parameter int NUM_REGS = 4   // レジスタ本数
+)(
+    input  logic                       clk,
+    input  logic                       rst_n,
+    // 読み出しポート1
+    input  logic [$clog2(NUM_REGS)-1:0] rs1_addr,
+    output logic [WIDTH-1:0]            rs1_data,
+    // 読み出しポート2
+    input  logic [$clog2(NUM_REGS)-1:0] rs2_addr,
+    output logic [WIDTH-1:0]            rs2_data,
+    // 書き込みポート
+    input  logic                        wr_en,
+    input  logic [$clog2(NUM_REGS)-1:0] rd_addr,
+    input  logic [WIDTH-1:0]            rd_data
+);
+
+    // レジスタ配列
+    logic [WIDTH-1:0] regs [NUM_REGS];
+
+    // 読み出し（組み合わせ回路）
+    assign rs1_data = regs[rs1_addr];
+    assign rs2_data = regs[rs2_addr];
+
+    // 書き込み（クロック同期）
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            for (int i = 0; i < NUM_REGS; i++)
+                regs[i] <= '0;  // リセット時に全レジスタをクリア
+        end else if (wr_en) begin
+            regs[rd_addr] <= rd_data;
+        end
+    end
+
+endmodule
+```
+
+### 18.4.5 制御ユニット
+
+```systemverilog
+module control_unit (
+    input  logic [3:0]  opcode,     // 命令オペコード
+    output logic        reg_write,  // レジスタ書き込み許可
+    output logic        mem_read,   // メモリ読み出し
+    output logic        mem_write,  // メモリ書き込み
+    output logic        alu_src,    // ALUソース選択（0:レジスタ, 1:即値）
+    output logic        branch,     // 分岐命令フラグ
+    output logic        mem_to_reg, // メモリ→レジスタ選択
+    output logic [3:0]  alu_op,     // ALU演算種別
+    output logic        halt        // 停止信号
+);
+
+    always_comb begin
+        // デフォルト値
+        reg_write  = 1'b0;
+        mem_read   = 1'b0;
+        mem_write  = 1'b0;
+        alu_src    = 1'b0;
+        branch     = 1'b0;
+        mem_to_reg = 1'b0;
+        alu_op     = 4'b0000;
+        halt       = 1'b0;
+
+        case (opcode)
+            4'b0000: begin // NOP
+                // 何もしない
+            end
+            4'b0001: begin // ADD
+                reg_write = 1'b1;
+                alu_op    = 4'b0001;
+            end
+            4'b0010: begin // SUB
+                reg_write = 1'b1;
+                alu_op    = 4'b0010;
+            end
+            4'b0011: begin // AND
+                reg_write = 1'b1;
+                alu_op    = 4'b0011;
+            end
+            4'b0100: begin // OR
+                reg_write = 1'b1;
+                alu_op    = 4'b0100;
+            end
+            4'b0101: begin // XOR
+                reg_write = 1'b1;
+                alu_op    = 4'b0101;
+            end
+            4'b0110: begin // LOAD
+                reg_write  = 1'b1;
+                mem_read   = 1'b1;
+                alu_src    = 1'b1;
+                mem_to_reg = 1'b1;
+                alu_op     = 4'b0001;  // アドレス計算にADD使用
+            end
+            4'b0111: begin // STORE
+                mem_write = 1'b1;
+                alu_src   = 1'b1;
+                alu_op    = 4'b0001;  // アドレス計算にADD使用
+            end
+            4'b1000: begin // ADDI
+                reg_write = 1'b1;
+                alu_src   = 1'b1;
+                alu_op    = 4'b0001;
+            end
+            4'b1001: begin // BEQ
+                branch = 1'b1;
+                alu_op = 4'b0010;  // 比較にSUB使用
+            end
+            4'b1010: begin // BNE
+                branch = 1'b1;
+                alu_op = 4'b0010;
+            end
+            4'b1111: begin // HALT
+                halt = 1'b1;
+            end
+            default: begin
+                // 未定義命令：何もしない
+            end
+        endcase
+    end
+
+endmodule
+```
+
+### 18.4.6 CPUトップモジュール
+
+```systemverilog
+module cpu_top #(
+    parameter int DATA_WIDTH = 8,
+    parameter int ADDR_WIDTH = 8
+)(
+    input  logic clk,
+    input  logic rst_n,
+    output logic halted  // CPU停止状態
+);
+
+    // 内部信号
+    logic [15:0]            instruction;
+    logic [ADDR_WIDTH-1:0]  pc;
+    logic [3:0]             opcode;
+    logic [1:0]             rd_addr, rs1_addr, rs2_addr;
+    logic [7:0]             imm;
+
+    // 制御信号
+    logic reg_write, mem_read, mem_write;
+    logic alu_src, branch, mem_to_reg, halt;
+    logic [3:0] alu_op;
+
+    // データパス信号
+    logic [DATA_WIDTH-1:0] rs1_data, rs2_data;
+    logic [DATA_WIDTH-1:0] alu_a, alu_b, alu_result;
+    logic                  zero_flag;
+    logic [DATA_WIDTH-1:0] mem_data_out;
+    logic [DATA_WIDTH-1:0] write_back_data;
+
+    // 命令デコード
+    assign opcode   = instruction[15:12];
+    assign rd_addr  = instruction[11:10];
+    assign rs1_addr = instruction[9:8];
+    assign rs2_addr = instruction[7:6];
+    assign imm      = instruction[7:0];
+
+    // プログラムカウンタ
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            pc <= '0;
+        else if (halt)
+            pc <= pc;  // 停止時はPCを保持
+        else if (branch && zero_flag && opcode == 4'b1001)
+            pc <= imm;  // BEQ: ゼロフラグが立っていれば分岐
+        else if (branch && !zero_flag && opcode == 4'b1010)
+            pc <= imm;  // BNE: ゼロフラグが立っていなければ分岐
+        else
+            pc <= pc + 1'b1;
+    end
+
+    // 命令メモリ（簡易実装：内部ROM）
+    logic [15:0] inst_mem [256];
+    assign instruction = inst_mem[pc];
+
+    // ALUソース選択
+    assign alu_a = rs1_data;
+    assign alu_b = alu_src ? {{(DATA_WIDTH){1'b0}} | imm[DATA_WIDTH-1:0]}
+                           : rs2_data;
+
+    // ライトバックデータ選択
+    assign write_back_data = mem_to_reg ? mem_data_out : alu_result;
+
+    // 停止信号
+    assign halted = halt;
+
+    // サブモジュールのインスタンス化
+    reg_file #(
+        .WIDTH(DATA_WIDTH), .NUM_REGS(4)
+    ) u_reg_file (
+        .clk(clk), .rst_n(rst_n),
+        .rs1_addr(rs1_addr), .rs1_data(rs1_data),
+        .rs2_addr(rs2_addr), .rs2_data(rs2_data),
+        .wr_en(reg_write), .rd_addr(rd_addr),
+        .rd_data(write_back_data)
+    );
+
+    alu #(.WIDTH(DATA_WIDTH)) u_alu (
+        .a(alu_a), .b(alu_b),
+        .alu_op(alu_op),
+        .result(alu_result), .zero_flag(zero_flag)
+    );
+
+    control_unit u_ctrl (
+        .opcode(opcode),
+        .reg_write(reg_write), .mem_read(mem_read),
+        .mem_write(mem_write), .alu_src(alu_src),
+        .branch(branch), .mem_to_reg(mem_to_reg),
+        .alu_op(alu_op), .halt(halt)
+    );
+
+    // データメモリ
+    logic [DATA_WIDTH-1:0] data_mem [256];
+
+    always_ff @(posedge clk) begin
+        if (mem_write)
+            data_mem[alu_result] <= rs1_data;
+    end
+
+    assign mem_data_out = mem_read ? data_mem[alu_result] : '0;
+
+endmodule
+```
+
+### 18.4.7 CPUテストベンチ
+
+テストベンチでは、命令メモリにプログラムをロードし、期待される実行結果と比較します。
+
+```systemverilog
+module tb_cpu;
+
+    logic clk, rst_n;
+    logic halted;
+
+    // クロック生成
+    initial clk = 0;
+    always #5 clk = ~clk;
+
+    // DUTインスタンス化
+    cpu_top #(
+        .DATA_WIDTH(8), .ADDR_WIDTH(8)
+    ) u_cpu (
+        .clk(clk), .rst_n(rst_n), .halted(halted)
+    );
+
+    // テストプログラムのロード
+    task automatic load_program();
+        // プログラム: R0=5, R1=3を設定し、R2=R0+R1を計算
+        // ADDI R0, R0, 5   (R0 = 0 + 5 = 5)
+        u_cpu.inst_mem[0] = {4'b1000, 2'b00, 2'b00, 8'd5};
+        // ADDI R1, R1, 3   (R1 = 0 + 3 = 3)
+        u_cpu.inst_mem[1] = {4'b1000, 2'b01, 2'b01, 8'd3};
+        // ADD R2, R0, R1   (R2 = 5 + 3 = 8)
+        u_cpu.inst_mem[2] = {4'b0001, 2'b10, 2'b00, 2'b01, 6'b0};
+        // SUB R3, R0, R1   (R3 = 5 - 3 = 2)
+        u_cpu.inst_mem[3] = {4'b0010, 2'b11, 2'b00, 2'b01, 6'b0};
+        // STORE R2, [R0+0] (mem[5] = 8)
+        u_cpu.inst_mem[4] = {4'b0111, 2'b10, 2'b00, 8'd0};
+        // LOAD R3, [R0+0]  (R3 = mem[5] = 8)
+        u_cpu.inst_mem[5] = {4'b0110, 2'b11, 2'b00, 8'd0};
+        // HALT
+        u_cpu.inst_mem[6] = {4'b1111, 12'b0};
+    endtask
+
+    // 結果検証
+    task automatic verify_results();
+        int errors = 0;
+
+        // R0 = 5
+        if (u_cpu.u_reg_file.regs[0] !== 8'd5) begin
+            $error("R0: 期待値=5, 実際=%0d", u_cpu.u_reg_file.regs[0]);
+            errors++;
+        end
+        // R1 = 3
+        if (u_cpu.u_reg_file.regs[1] !== 8'd3) begin
+            $error("R1: 期待値=3, 実際=%0d", u_cpu.u_reg_file.regs[1]);
+            errors++;
+        end
+        // R2 = 8
+        if (u_cpu.u_reg_file.regs[2] !== 8'd8) begin
+            $error("R2: 期待値=8, 実際=%0d", u_cpu.u_reg_file.regs[2]);
+            errors++;
+        end
+
+        if (errors == 0)
+            $display("[PASS] すべてのレジスタ値が正しいです");
+        else
+            $error("[FAIL] %0d 個のエラーが検出されました", errors);
+    endtask
+
+    // カバレッジ：命令種別の網羅
+    covergroup cpu_cov @(posedge clk);
+        opcode_cp: coverpoint u_cpu.opcode {
+            bins nop   = {4'b0000};
+            bins add   = {4'b0001};
+            bins sub   = {4'b0010};
+            bins and_  = {4'b0011};
+            bins or_   = {4'b0100};
+            bins xor_  = {4'b0101};
+            bins load  = {4'b0110};
+            bins store = {4'b0111};
+            bins addi  = {4'b1000};
+            bins beq   = {4'b1001};
+            bins bne   = {4'b1010};
+            bins halt  = {4'b1111};
+        }
+        alu_zero_cp: coverpoint u_cpu.zero_flag;
+    endgroup
+
+    cpu_cov cov = new();
+
+    // メインテストシーケンス
+    initial begin
+        rst_n = 1'b0;
+        repeat (5) @(posedge clk);
+        rst_n = 1'b1;
+
+        // プログラムロード
+        load_program();
+
+        // 実行完了（HALT）を待機
+        wait (halted);
+        repeat (2) @(posedge clk);
+
+        // 結果検証
+        verify_results();
+
+        $display("=== CPUテスト完了 ===");
+        $finish;
+    end
+
+    // タイムアウト監視
+    initial begin
+        #100_000;
+        $fatal(1, "テストがタイムアウトしました");
+    end
+
+endmodule
+```
+
+### 18.4.8 期待される結果
+
+```
+[PASS] すべてのレジスタ値が正しいです
+=== CPUテスト完了 ===
+```
+
+レジスタの最終状態は以下の通りです。
+
+| レジスタ | 期待値 | 説明 |
+|---------|--------|------|
+| R0 | 5 | ADDI R0, R0, 5 |
+| R1 | 3 | ADDI R1, R1, 3 |
+| R2 | 8 | ADD R2, R0, R1 (5+3) |
+| R3 | 8 | LOAD R3, [R0+0] (mem[5]の値) |
 
 ---
 
-## 18.6 キャリアガイダンス
+## 18.5 プロジェクト3：SPIマスターコントローラ
 
-### 18.6.1 ハードウェアエンジニアに求められるスキルセット
+### 18.5.1 SPIプロトコルの概要
 
-半導体業界でハードウェアエンジニアとして活躍するために必要なスキルを分類して示します。
+**SPI（Serial Peripheral Interface）**は、マスター/スレーブ方式の同期式シリアル通信インターフェースです。4本の信号線で全二重通信を行います。
 
-**必須スキル（Must-Have）**
+| 信号名 | 方向 | 説明 |
+|--------|------|------|
+| **SCLK** | マスター→スレーブ | シリアルクロック |
+| **MOSI** | マスター→スレーブ | Master Out Slave In（送信データ） |
+| **MISO** | スレーブ→マスター | Master In Slave Out（受信データ） |
+| **CS_N** | マスター→スレーブ | チップセレクト（アクティブLow） |
 
-- **SystemVerilog/Verilog**: 本書で学んだRTL設計および検証のスキル
-- **デジタル論理設計**: ブール代数、組み合わせ回路、順序回路、ステートマシンの設計
-- **コンピュータアーキテクチャの基礎**: パイプライン、キャッシュ、メモリ階層の理解
-- **バスプロトコル**: AXI、AHB、APBなどのAMBAプロトコルファミリの知識
-- **バージョン管理**: Git/GitHubを用いたチーム開発のワークフロー
+![SPIバス接続図](/images/ch17_spi_bus_connection.drawio.png)
 
-**強く推奨されるスキル（Strong Plus）**
+本プロジェクトでは以下の仕様でSPIマスターを設計します。
 
-- **UVM**: 大規模検証環境の構築能力（検証エンジニアの場合は必須）
-- **スクリプト言語**: Python、Perl、Tcl によるEDAツールの自動化
-- **Linuxコマンドライン**: シェルスクリプト、Makefile の作成と活用
-- **SDC（タイミング制約）**: タイミング制約の記述と解釈
+- **データ幅**: 8ビット
+- **クロック極性（CPOL）**: 0または1（設定可能）
+- **クロック位相（CPHA）**: 0または1（設定可能）
+- **クロック分周比**: 2, 4, 8, 16, 32, 64, 128, 256（設定可能）
+- **ビット順序**: MSBファースト
 
-**差別化スキル（Nice-to-Have）**
+SPIには4つの動作モードがあります。
 
-- **フォーマル検証**: SVAを用いたプロパティチェックの実践経験
-- **低消費電力設計**: UPF/CPFによるパワーインテントの記述
-- **物理設計の基礎知識**: フロアプラン、配置配線、IRドロップの概念理解
-- **エミュレーション/プロトタイピング**: ハードウェアエミュレータの使用経験
-- **C/C++ プログラミング**: DPI-C、ファームウェア、デバイスドライバの開発
+| モード | CPOL | CPHA | クロックアイドル | データサンプリング |
+|--------|------|------|--------------|----------------|
+| Mode 0 | 0 | 0 | Low | 立ち上がりエッジ |
+| Mode 1 | 0 | 1 | Low | 立ち下がりエッジ |
+| Mode 2 | 1 | 0 | High | 立ち下がりエッジ |
+| Mode 3 | 1 | 1 | High | 立ち上がりエッジ |
 
-### 18.6.2 面接準備のトピック
+### 18.5.2 SPIマスター RTL設計
 
-半導体企業の技術面接でよく問われるトピックをまとめます。これらの分野について、自分の言葉で説明できるよう準備しておくことが重要です。
+```systemverilog
+module spi_master #(
+    parameter int DATA_WIDTH = 8  // データ幅
+)(
+    input  logic                   clk,
+    input  logic                   rst_n,
+    // 制御インターフェース
+    input  logic                   start,      // 転送開始
+    input  logic [DATA_WIDTH-1:0]  tx_data,    // 送信データ
+    output logic [DATA_WIDTH-1:0]  rx_data,    // 受信データ
+    output logic                   busy,       // 転送中フラグ
+    output logic                   done,       // 転送完了パルス
+    // SPI設定
+    input  logic                   cpol,       // クロック極性
+    input  logic                   cpha,       // クロック位相
+    input  logic [7:0]             clk_div,    // クロック分周値
+    // SPIバス信号
+    output logic                   sclk,       // SPIクロック
+    output logic                   mosi,       // マスター出力
+    input  logic                   miso,       // マスター入力
+    output logic                   cs_n        // チップセレクト
+);
 
-**設計系の頻出トピック**
+    // ステートマシン
+    typedef enum logic [2:0] {
+        S_IDLE,       // アイドル状態
+        S_CS_SETUP,   // CSセットアップ時間
+        S_TRANSFER,   // データ転送中
+        S_CS_HOLD,    // CSホールド時間
+        S_DONE        // 転送完了
+    } spi_state_t;
 
-| トピック | 問われるポイント |
-|---------|--------------|
-| ブロッキング代入 vs ノンブロッキング代入 | 各代入の動作原理と使い分けの理由 |
-| `always_comb` vs `always_ff` | 合成結果の違い、ラッチ推論の回避 |
-| クロックドメインクロッシング（CDC） | メタステーブル、2FFシンクロナイザ、グレイコード |
-| FIFO設計 | 非同期FIFO、ポインタ管理、フル/エンプティ判定 |
-| ステートマシン設計 | ワンホット vs バイナリエンコーディング、ムーア型 vs ミーリ型 |
-| セットアップ・ホールド違反 | 原因の分析と対策（パイプライン挿入、クロックスキュー調整） |
-| パラメータ化設計 | `parameter`、`generate` を用いた再利用可能な設計 |
+    spi_state_t state, next_state;
 
-**検証系の頻出トピック**
+    logic [7:0]              clk_cnt;      // クロック分周カウンタ
+    logic                    sclk_en;      // SCLKイネーブル
+    logic [$clog2(DATA_WIDTH)-1:0] bit_cnt; // ビットカウンタ
+    logic [DATA_WIDTH-1:0]   tx_shift;     // 送信シフトレジスタ
+    logic [DATA_WIDTH-1:0]   rx_shift;     // 受信シフトレジスタ
+    logic                    sclk_int;     // 内部SCLKトグル
+    logic                    sample_edge;  // サンプリングエッジ
+    logic                    shift_edge;   // シフトエッジ
 
-| トピック | 問われるポイント |
-|---------|--------------|
-| 制約付きランダム検証 | `rand`/`randc`、制約の記述方法、解決順序 |
-| UVMアーキテクチャ | コンポーネントの役割、フェーズ、Factory、Config DB |
-| 機能カバレッジ | `covergroup`、`coverpoint`、`cross` の設計方針 |
-| SVA | 即時 vs 並行アサーション、シーケンスの記述 |
-| `fork-join` の各バリエーション | `fork-join`、`fork-join_any`、`fork-join_none` の違い |
-| 浅いコピー vs 深いコピー | オブジェクトのコピー方法とその影響 |
-| 仮想メソッド | `virtual` キーワードの効果とポリモーフィズムの実現 |
+    // クロック分周
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            clk_cnt  <= '0;
+            sclk_en  <= 1'b0;
+        end else if (state == S_TRANSFER) begin
+            if (clk_cnt == clk_div - 1) begin
+                clk_cnt <= '0;
+                sclk_en <= 1'b1;
+            end else begin
+                clk_cnt <= clk_cnt + 1'b1;
+                sclk_en <= 1'b0;
+            end
+        end else begin
+            clk_cnt <= '0;
+            sclk_en <= 1'b0;
+        end
+    end
 
-**コーディング面接のアドバイス**
+    // SCLKの生成
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            sclk_int <= 1'b0;
+        else if (state == S_TRANSFER && sclk_en)
+            sclk_int <= ~sclk_int;
+        else if (state == S_IDLE)
+            sclk_int <= 1'b0;
+    end
 
-- **手書きコードの練習**: ホワイトボードやテキストエディタ上で、コンパイルエラーなくコードを書ける力を養いましょう
-- **RTL設計問題**: カウンタ、シフトレジスタ、FIFO、アービタなどの典型的なRTL設計を短時間で実装できるよう練習しましょう
-- **テストベンチ設計問題**: 与えられたDUT（Device Under Test）に対して、テスト戦略を説明し、テストベンチを構築する能力が問われます
-- **デバッグ問題**: バグを含むコードを読み、問題点を特定・修正する能力も重要です
+    // CPOL適用
+    assign sclk = cpol ? ~sclk_int : sclk_int;
 
-### 18.6.3 継続的な学習とコミュニティ参加
+    // サンプリング/シフトエッジの決定
+    assign sample_edge = sclk_en & (cpha ? sclk_int : ~sclk_int);
+    assign shift_edge  = sclk_en & (cpha ? ~sclk_int : sclk_int);
 
-技術の進化が速い半導体業界では、継続的な学習が不可欠です。
+    // 状態遷移
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            state <= S_IDLE;
+        else
+            state <= next_state;
+    end
 
-- **学会・カンファレンス**: DVCon（Design and Verification Conference）、DAC（Design Automation Conference）、SNUG（Synopsys Users Group）などの業界カンファレンスに参加することで、最新技術動向と業界のベストプラクティスを学べます
-- **技術ブログの定期的な読解**: Synopsys、Cadence、Siemens EDA の公式ブログは、新しいツール機能や検証手法に関する有益な情報を提供しています
-- **オープンソースプロジェクトへの貢献**: RISC-V関連のプロジェクトやVerilator、cocotbなどのオープンソースツールへの貢献は、スキルの向上とコミュニティでの認知度向上に効果的です
-- **社内外の勉強会**: 同僚やコミュニティとの知識共有を通じて、自身の理解を深め、新しい視点を得ることができます
+    // 次状態論理
+    always_comb begin
+        next_state = state;
+        case (state)
+            S_IDLE: begin
+                if (start)
+                    next_state = S_CS_SETUP;
+            end
+            S_CS_SETUP: begin
+                next_state = S_TRANSFER;  // 1クロックのセットアップ
+            end
+            S_TRANSFER: begin
+                if (shift_edge && bit_cnt == DATA_WIDTH - 1)
+                    next_state = S_CS_HOLD;
+            end
+            S_CS_HOLD: begin
+                next_state = S_DONE;
+            end
+            S_DONE: begin
+                next_state = S_IDLE;
+            end
+            default: next_state = S_IDLE;
+        endcase
+    end
+
+    // データパス
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            tx_shift <= '0;
+            rx_shift <= '0;
+            bit_cnt  <= '0;
+            cs_n     <= 1'b1;  // 非選択
+            mosi     <= 1'b0;
+            rx_data  <= '0;
+            busy     <= 1'b0;
+            done     <= 1'b0;
+        end else begin
+            done <= 1'b0;  // デフォルトで非アクティブ
+            case (state)
+                S_IDLE: begin
+                    cs_n <= 1'b1;
+                    busy <= 1'b0;
+                    if (start) begin
+                        tx_shift <= tx_data;
+                        busy     <= 1'b1;
+                    end
+                end
+                S_CS_SETUP: begin
+                    cs_n <= 1'b0;  // チップセレクトアサート
+                    mosi <= tx_shift[DATA_WIDTH-1];  // MSBを出力
+                end
+                S_TRANSFER: begin
+                    // データサンプリング（受信）
+                    if (sample_edge)
+                        rx_shift <= {rx_shift[DATA_WIDTH-2:0], miso};
+
+                    // データシフト（送信）
+                    if (shift_edge) begin
+                        tx_shift <= {tx_shift[DATA_WIDTH-2:0], 1'b0};
+                        mosi     <= tx_shift[DATA_WIDTH-2];
+                        bit_cnt  <= bit_cnt + 1'b1;
+                    end
+                end
+                S_CS_HOLD: begin
+                    rx_data <= rx_shift;  // 受信データを確定
+                end
+                S_DONE: begin
+                    cs_n    <= 1'b1;  // チップセレクトデアサート
+                    done    <= 1'b1;  // 完了パルス
+                    bit_cnt <= '0;
+                end
+            endcase
+        end
+    end
+
+endmodule
+```
+
+### 18.5.3 SPIスレーブモデル（検証用）
+
+テストベンチで使用するスレーブモデルです。マスターからの送信データをエコーバックします。
+
+```systemverilog
+module spi_slave_model #(
+    parameter int DATA_WIDTH = 8
+)(
+    input  logic                   sclk,
+    input  logic                   cs_n,
+    input  logic                   mosi,
+    output logic                   miso,
+    input  logic                   cpol,
+    input  logic                   cpha,
+    // モニタ用出力
+    output logic [DATA_WIDTH-1:0]  received_data,
+    output logic                   data_valid
+);
+
+    logic [DATA_WIDTH-1:0] rx_shift;
+    logic [DATA_WIDTH-1:0] tx_shift;
+    logic [$clog2(DATA_WIDTH)-1:0] bit_cnt;
+    logic sample_clk, shift_clk;
+
+    // CPOL/CPHAに応じたエッジ選択
+    assign sample_clk = (cpol ^ cpha) ? ~sclk : sclk;  // サンプリングエッジ
+    assign shift_clk  = (cpol ^ cpha) ? sclk : ~sclk;   // シフトエッジ
+
+    // MISO出力（MSBファースト）
+    assign miso = cs_n ? 1'bz : tx_shift[DATA_WIDTH-1];
+
+    // 受信処理
+    always @(posedge sample_clk or posedge cs_n) begin
+        if (cs_n) begin
+            bit_cnt    <= '0;
+            data_valid <= 1'b0;
+        end else begin
+            rx_shift <= {rx_shift[DATA_WIDTH-2:0], mosi};
+            bit_cnt  <= bit_cnt + 1'b1;
+            if (bit_cnt == DATA_WIDTH - 1) begin
+                received_data <= {rx_shift[DATA_WIDTH-2:0], mosi};
+                data_valid    <= 1'b1;
+            end
+        end
+    end
+
+    // 送信処理（受信データをエコーバック）
+    always @(negedge cs_n) begin
+        tx_shift <= received_data;  // 前回の受信データを送信
+    end
+
+    always @(posedge shift_clk) begin
+        if (!cs_n)
+            tx_shift <= {tx_shift[DATA_WIDTH-2:0], 1'b0};
+    end
+
+endmodule
+```
+
+### 18.5.4 SPIテストベンチ
+
+4つのSPIモードすべてをテストし、全二重通信の正しさを確認します。
+
+```systemverilog
+module tb_spi;
+
+    // パラメータ
+    localparam int DATA_WIDTH = 8;
+    localparam int CLK_DIV    = 4;
+
+    // 信号宣言
+    logic clk, rst_n;
+    logic start;
+    logic [DATA_WIDTH-1:0] tx_data, rx_data;
+    logic busy, done;
+    logic cpol, cpha;
+    logic [7:0] clk_div;
+    logic sclk, mosi, miso, cs_n;
+
+    // スレーブモデルの信号
+    logic [DATA_WIDTH-1:0] slave_rx_data;
+    logic slave_data_valid;
+
+    // クロック生成
+    initial clk = 0;
+    always #5 clk = ~clk;
+
+    // DUTインスタンス化
+    spi_master #(.DATA_WIDTH(DATA_WIDTH)) u_master (
+        .clk(clk), .rst_n(rst_n),
+        .start(start), .tx_data(tx_data), .rx_data(rx_data),
+        .busy(busy), .done(done),
+        .cpol(cpol), .cpha(cpha), .clk_div(clk_div),
+        .sclk(sclk), .mosi(mosi), .miso(miso), .cs_n(cs_n)
+    );
+
+    // スレーブモデルインスタンス化
+    spi_slave_model #(.DATA_WIDTH(DATA_WIDTH)) u_slave (
+        .sclk(sclk), .cs_n(cs_n),
+        .mosi(mosi), .miso(miso),
+        .cpol(cpol), .cpha(cpha),
+        .received_data(slave_rx_data),
+        .data_valid(slave_data_valid)
+    );
+
+    // カバレッジ
+    covergroup spi_cov @(posedge done);
+        // SPIモードのカバレッジ
+        mode_cp: coverpoint {cpol, cpha} {
+            bins mode0 = {2'b00};
+            bins mode1 = {2'b01};
+            bins mode2 = {2'b10};
+            bins mode3 = {2'b11};
+        }
+        // 送信データの範囲
+        tx_data_cp: coverpoint tx_data {
+            bins zero     = {8'h00};
+            bins low      = {[8'h01:8'h7F]};
+            bins high     = {[8'h80:8'hFE]};
+            bins all_ones = {8'hFF};
+        }
+        // モード×データのクロスカバレッジ
+        mode_data_cross: cross mode_cp, tx_data_cp;
+    endgroup
+
+    spi_cov cov = new();
+
+    // 1回のSPI転送を実行するタスク
+    task automatic spi_transfer(
+        input  logic [DATA_WIDTH-1:0] data,
+        output logic [DATA_WIDTH-1:0] received
+    );
+        @(posedge clk);
+        tx_data = data;
+        start   = 1'b1;
+        @(posedge clk);
+        start = 1'b0;
+
+        // 転送完了を待機
+        wait (done);
+        @(posedge clk);
+        received = rx_data;
+    endtask
+
+    // メインテストシーケンス
+    int pass_count = 0;
+    int fail_count = 0;
+
+    initial begin
+        // 初期化
+        rst_n   = 1'b0;
+        start   = 1'b0;
+        tx_data = '0;
+        cpol    = 1'b0;
+        cpha    = 1'b0;
+        clk_div = CLK_DIV;
+
+        repeat (10) @(posedge clk);
+        rst_n = 1'b1;
+        repeat (5) @(posedge clk);
+
+        // 4つのSPIモードすべてをテスト
+        for (int mode = 0; mode < 4; mode++) begin
+            cpol = mode[1];
+            cpha = mode[0];
+            $display("=== SPI Mode %0d (CPOL=%0b, CPHA=%0b) ===",
+                     mode, cpol, cpha);
+
+            // ダイレクトテスト
+            begin
+                logic [DATA_WIDTH-1:0] recv;
+                spi_transfer(8'hA5, recv);
+                if (slave_rx_data === 8'hA5) begin
+                    pass_count++;
+                    $display("[PASS] 送信=0xA5, スレーブ受信=0x%02h", slave_rx_data);
+                end else begin
+                    fail_count++;
+                    $error("[FAIL] 送信=0xA5, スレーブ受信=0x%02h", slave_rx_data);
+                end
+
+                repeat (20) @(posedge clk);
+            end
+
+            // ランダムテスト（各モード10回）
+            for (int i = 0; i < 10; i++) begin
+                logic [DATA_WIDTH-1:0] random_data, recv;
+                assert(std::randomize(random_data));
+                spi_transfer(random_data, recv);
+
+                if (slave_rx_data === random_data) begin
+                    pass_count++;
+                end else begin
+                    fail_count++;
+                    $error("[FAIL] Mode%0d: 送信=0x%02h, スレーブ受信=0x%02h",
+                           mode, random_data, slave_rx_data);
+                end
+                repeat (20) @(posedge clk);
+            end
+        end
+
+        // 結果サマリ
+        $display("============================");
+        $display("PASS: %0d, FAIL: %0d", pass_count, fail_count);
+        $display("============================");
+
+        if (fail_count == 0)
+            $display("ALL SPI TESTS PASSED");
+        else
+            $fatal(1, "SOME SPI TESTS FAILED");
+
+        $finish;
+    end
+
+endmodule
+```
+
+### 18.5.5 期待される結果
+
+```
+=== SPI Mode 0 (CPOL=0, CPHA=0) ===
+[PASS] 送信=0xA5, スレーブ受信=0xa5
+=== SPI Mode 1 (CPOL=0, CPHA=1) ===
+[PASS] 送信=0xA5, スレーブ受信=0xa5
+=== SPI Mode 2 (CPOL=1, CPHA=0) ===
+[PASS] 送信=0xA5, スレーブ受信=0xa5
+=== SPI Mode 3 (CPOL=1, CPHA=1) ===
+[PASS] 送信=0xA5, スレーブ受信=0xa5
+============================
+PASS: 44, FAIL: 0
+============================
+ALL SPI TESTS PASSED
+```
 
 ---
 
-## 18.7 SystemVerilog学習の全体マップ
+## 18.6 デバッグ戦略
 
-これまでの内容を踏まえ、SystemVerilog学習の全体像を一つのマップとして整理します。
+### 18.6.1 体系的なデバッグアプローチ
 
-![SystemVerilog学習の全体マップ](/images/ch18_learning_map.drawio.png)
+プロジェクト演習でバグに遭遇した場合、以下の体系的なアプローチで原因を特定します。これは第15章で学んだデバッグ技法の実践的な適用です。
 
-### 18.7.1 学習段階の目安
+1. **症状の特定**: テストの失敗メッセージやアサーション違反を正確に把握します
+2. **再現性の確認**: 同じ条件で必ず再現するか、ランダムシードに依存するかを確認します
+3. **問題の切り分け**: 関連するモジュールを特定し、影響範囲を絞り込みます
+4. **波形の確認**: 信号のタイミングと値を波形ビューワで確認します
+5. **根本原因の特定**: RTLのロジックやステートマシンの誤りを発見します
+6. **修正と回帰テスト**: 修正後、既存のテストがすべて通ることを確認します
 
-以下の表は、各段階で到達すべきスキルレベルの目安を示しています。
+![デバッグフロー](/images/ch17_debug_flow.drawio.png)
 
-| 段階 | 期間の目安 | 到達レベル | 主な学習内容 |
-|------|----------|----------|------------|
-| **初級** | 1〜3ヶ月 | 基本的なRTL設計と簡単なテストベンチが書ける | 本書 第1部〜第3部（第1章〜第8章） |
-| **中級** | 3〜6ヶ月 | CRV、SVA、カバレッジを用いた検証環境が構築できる | 本書 第4部〜第5部（第9章〜第16章） |
-| **上級** | 6〜12ヶ月 | UVMベースの検証環境を設計・実装できる | UVM専門書、Verification Academy |
-| **エキスパート** | 1年以上 | プロジェクトの検証戦略を策定し、チームをリードできる | 実務経験、フォーマル検証、エミュレーション |
+### 18.6.2 各プロジェクトでの典型的な問題
 
-### 18.7.2 学習を加速するためのヒント
+プロジェクトごとに起こりやすい典型的な問題と、その対処法を以下にまとめます。
 
-効率的にSystemVerilogを学ぶためのアドバイスをまとめます。
+**UARTコントローラ**
 
-- **手を動かす**: コードを読むだけでなく、必ず自分でタイピングし、シミュレーションを実行しましょう。EDA Playgroundを使えば、環境構築不要ですぐに試せます
-- **エラーメッセージを読む**: コンパイルエラーやシミュレーションエラーのメッセージを丁寧に読む習慣をつけましょう。エラーメッセージは最良の教師です
-- **小さなプロジェクトから始める**: いきなり大規模な設計に挑むのではなく、カウンタやFIFOなどの小さな回路から始め、徐々に複雑度を上げていきましょう
-- **リファレンスコードを読む**: オープンソースの設計（RISC-Vプロセッサなど）やUVMのソースコードを読むことで、実務レベルのコーディングスタイルを学べます
-- **規格書を恐れない**: IEEE 1800 規格書は膨大ですが、疑問が生じた際の最終的な拠り所です。必要な箇所を引く習慣を早い段階で身につけましょう
+| 症状 | 想定される原因 | デバッグ方法 |
+|------|-------------|------------|
+| 受信データが化ける | ボーレート不一致 | 分周カウンタの計算値を確認 |
+| スタートビット検出失敗 | サンプリングタイミング異常 | tick信号の周期を波形で確認 |
+| データがシフトしている | ビットカウンタのオフバイワン | bit_cntの遷移を波形で追跡 |
+
+**簡易CPU**
+
+| 症状 | 想定される原因 | デバッグ方法 |
+|------|-------------|------------|
+| 演算結果が不正 | ALUオペコードの割り当てミス | 制御ユニットの出力を確認 |
+| 分岐が動作しない | ゼロフラグの接続ミス | ALU→制御の信号を追跡 |
+| メモリアクセス異常 | アドレス計算の誤り | ALU結果とメモリアドレスを比較 |
+
+**SPIマスター**
+
+| 症状 | 想定される原因 | デバッグ方法 |
+|------|-------------|------------|
+| データ化け | CPOL/CPHAの処理ミス | SCLKとMOSI/MISOのタイミング確認 |
+| 最初のビットが欠落 | CS→SCLKのセットアップ時間不足 | CSアサートからSCLK開始までの時間確認 |
+| 転送が完了しない | ビットカウンタの終了条件ミス | bit_cntの値を波形で監視 |
+
+### 18.6.3 アサーションを活用したデバッグ
+
+各プロジェクトに組み込むべきアサーションの例を示します。アサーションを事前に埋め込んでおくことで、バグの早期発見が可能になります。
+
+```systemverilog
+// UARTアサーション例
+module uart_assertions (
+    input logic clk, rst_n,
+    input logic tx, rx,
+    input logic tx_busy, rx_valid
+);
+
+    // TX信号はリセット解除後、アイドル時にHighであること
+    property tx_idle_high;
+        @(posedge clk) disable iff (!rst_n)
+        !tx_busy |-> tx;
+    endproperty
+    assert property (tx_idle_high)
+        else $error("TX line is not HIGH during idle");
+
+    // rx_validは1クロック幅であること
+    property rx_valid_pulse;
+        @(posedge clk) disable iff (!rst_n)
+        rx_valid |=> !rx_valid;
+    endproperty
+    assert property (rx_valid_pulse)
+        else $error("rx_valid is not a single-cycle pulse");
+
+endmodule
+```
+
+```systemverilog
+// CPUアサーション例
+module cpu_assertions (
+    input logic       clk, rst_n,
+    input logic [3:0] opcode,
+    input logic       reg_write,
+    input logic       mem_write,
+    input logic       halt
+);
+
+    // HALT時にはメモリ書き込みが発生しないこと
+    property no_write_on_halt;
+        @(posedge clk) disable iff (!rst_n)
+        halt |-> !mem_write && !reg_write;
+    endproperty
+    assert property (no_write_on_halt)
+        else $error("Write occurred during HALT");
+
+    // レジスタ書き込みとメモリ書き込みが同時に発生しないこと
+    property no_simultaneous_write;
+        @(posedge clk) disable iff (!rst_n)
+        !(reg_write && mem_write);
+    endproperty
+    assert property (no_simultaneous_write)
+        else $error("Simultaneous register and memory write");
+
+endmodule
+```
+
+```systemverilog
+// SPIアサーション例
+module spi_assertions (
+    input logic clk, rst_n,
+    input logic cs_n, sclk, busy, done
+);
+
+    // CS_Nがデアサート中はSCLKがトグルしないこと
+    property no_sclk_without_cs;
+        @(posedge clk) disable iff (!rst_n)
+        cs_n |-> $stable(sclk);
+    endproperty
+    assert property (no_sclk_without_cs)
+        else $error("SCLK toggled while CS_N is deasserted");
+
+    // doneは1クロック幅のパルスであること
+    property done_pulse_width;
+        @(posedge clk) disable iff (!rst_n)
+        done |=> !done;
+    endproperty
+    assert property (done_pulse_width)
+        else $error("done signal is not a single-cycle pulse");
+
+endmodule
+```
 
 ---
 
-## 18.8 よくある質問（FAQ）
+## 18.7 プロジェクト演習ガイドライン
 
-本書を学び終えた読者からよく寄せられる質問とその回答をまとめます。
+### 18.7.1 プロジェクトの取り組み方
 
-### 18.8.1 言語選択に関する質問
+各プロジェクトに取り組む際は、以下のステップに従うことを推奨します。
 
-**Q: VHDLとSystemVerilog、どちらを学ぶべきですか？**
+1. **仕様書を読む**: まず仕様を完全に理解してから設計を開始してください
+2. **ブロック図を描く**: モジュール間のインターフェースを明確にします
+3. **段階的に実装する**: 最小限の機能から始めて、徐々に機能を追加します
+4. **こまめにテストする**: モジュール単位でテストし、統合前にバグを発見します
+5. **波形を確認する**: 期待通りの動作かどうか、必ず波形で確認します
 
-A: 業界全体のトレンドとしては、SystemVerilogが主流です。特に北米・アジアの半導体企業では、SystemVerilogが圧倒的に多く使われています。ヨーロッパの一部の企業や航空宇宙・防衛産業ではVHDLが依然として使われていますが、新規プロジェクトでのSystemVerilog採用は増加傾向にあります。キャリアの選択肢を広げるためには、SystemVerilogをまず習得し、必要に応じてVHDLの読み書きも学ぶことを推奨します。
+### 18.7.2 検証計画の作成
 
-**Q: ChiselやBluespecなどの新しいHDLを学ぶべきですか？**
+各プロジェクトで検証計画を作成することが重要です。以下のテンプレートを参考にしてください。
 
-A: これらの言語は興味深い技術的アプローチを持っていますが、現時点では業界での採用は限定的です。まずSystemVerilogを確実に習得した上で、興味や必要性に応じてこれらの言語に触れるのがよいでしょう。なお、Chisel の出力は Verilog であり、最終的にはSystemVerilogの知識が不可欠です。
+| 検証項目 | テスト種類 | カバレッジ目標 | 優先度 |
+|---------|-----------|-------------|--------|
+| 基本機能 | ダイレクトテスト | 全パスの実行確認 | 高 |
+| 境界値 | ダイレクトテスト | 最小/最大/ゼロ値 | 高 |
+| ランダムシナリオ | 制約付きランダム | 機能カバレッジ100% | 中 |
+| エラーケース | ダイレクトテスト | エラーハンドリング確認 | 中 |
+| コーナーケース | ダイレクト/ランダム | 特殊な組み合わせ | 低 |
 
-### 18.8.2 キャリアに関する質問
+### 18.7.3 カバレッジ駆動検証の実践
 
-**Q: 設計エンジニアと検証エンジニア、どちらが需要がありますか？**
+プロジェクト演習では、カバレッジ駆動検証（CDV: Coverage Driven Verification）のアプローチを採用します。
 
-A: 現在の半導体業界では、検証エンジニアの需要が非常に高い状態が続いています。設計の複雑化に伴い、検証にかかる工数は設計全体の60〜70%を占めると言われています。ただし、優秀な設計エンジニアも常に求められており、どちらのキャリアパスも将来性は十分にあります。自身の適性と興味に基づいて選択することが重要です。
+```systemverilog
+// カバレッジ駆動検証のフレームワーク例
+class coverage_driven_test;
 
-**Q: ソフトウェアエンジニアからハードウェアエンジニアへの転身は可能ですか？**
+    // カバレッジ目標
+    real target_coverage = 95.0;
 
-A: 十分に可能です。特に検証エンジニアは、OOP、テスト設計、スクリプティングなどのソフトウェアスキルが直接活かせます。デジタル論理設計の基礎知識（ブール代数、フリップフロップ、ステートマシンなど）を補強した上で、SystemVerilogの検証機能を学べば、比較的スムーズに転身できます。
+    // テストループ
+    task run();
+        int iteration = 0;
+        real current_coverage;
 
-### 18.8.3 ツールに関する質問
+        while (1) begin
+            iteration++;
 
-**Q: オープンソースツールだけで本格的な検証はできますか？**
+            // ランダムシナリオを生成・実行
+            generate_and_run_scenario();
 
-A: 学習目的やPre-Silicon検証の入門としては、Verilator + cocotb の組み合わせが非常に有効です。ただし、UVMの完全なサポートや高度なデバッグ機能は商用シミュレータの方が充実しています。業務レベルの検証には、商用ツールの利用が一般的です。Verilator は近年UVMの部分的なサポートを進めており、今後の発展に期待できます。
+            // カバレッジを確認
+            current_coverage = $get_coverage();
+            $display("反復%0d: カバレッジ = %.1f%%", iteration, current_coverage);
 
-**Q: どのFPGA開発ボードから始めるべきですか？**
+            // 目標達成で終了
+            if (current_coverage >= target_coverage) begin
+                $display("カバレッジ目標 %.1f%% を達成しました（%0d回の反復）",
+                         target_coverage, iteration);
+                break;
+            end
 
-A: 予算が限られている場合は、SiPeed Tang Nano 9K（約3千円）や Lattice iCEstick（約3千円）が手軽に始められます。大学や教育機関でよく使われている Digilent Basys 3 や Arty A7 は、周辺デバイスが充実しており、多様なプロジェクトに取り組めます。まずは手頃なボードで基本的な回路設計を体験し、必要に応じてステップアップしていくことをお勧めします。
+            // 上限に達した場合は警告
+            if (iteration >= 10000) begin
+                $warning("反復上限に達しました。カバレッジ = %.1f%%",
+                         current_coverage);
+                break;
+            end
+        end
+    endtask
 
----
+    // シナリオ生成・実行（プロジェクトごとにオーバーライド）
+    virtual task generate_and_run_scenario();
+    endtask
 
-## 18.9 推奨学習プラン
+endclass
+```
 
-最後に、本書の読了後に取り組む具体的な学習プランを3つ提案します。
+### 18.7.4 プロジェクト評価基準
 
-### 18.9.1 30日間チャレンジ：RTL設計力強化
+各プロジェクトの達成度は、以下の基準で評価します。
 
-RTL設計の基礎力を固めるための30日間の集中プランです。
-
-| 週 | テーマ | 課題 |
-|---|-------|------|
-| 第1週 | 組み合わせ回路 | マルチプレクサ、デコーダ、エンコーダ、ALU の設計 |
-| 第2週 | 順序回路 | カウンタ（各種）、シフトレジスタ、FSM の設計 |
-| 第3週 | メモリとバス | 同期/非同期FIFO、単純なバスアービタの設計 |
-| 第4週 | 統合プロジェクト | 簡易UART送受信モジュールまたはSPIコントローラの設計 |
-
-各課題について、RTLの設計だけでなく、テストベンチの作成とシミュレーションによる検証も行いましょう。
-
-### 18.9.2 60日間チャレンジ：検証環境構築
-
-SystemVerilogの検証機能を実践的に習得するための60日間プランです。
-
-| 週 | テーマ | 課題 |
-|---|-------|------|
-| 第1〜2週 | OOPとCRV | クラスベースのトランザクション、制約付きランダム生成 |
-| 第3〜4週 | テストベンチ構築 | Driver、Monitor、Scoreboard の自作 |
-| 第5〜6週 | SVAとカバレッジ | プロトコルチェッカー、カバレッジモデルの設計 |
-| 第7〜8週 | UVM入門 | UVMコンポーネントを用いた検証環境の構築 |
-
-### 18.9.3 90日間チャレンジ：総合プロジェクト
-
-設計から検証までを一気通貫で行う総合プロジェクトです。
-
-| フェーズ | 期間 | 内容 |
+| 評価項目 | 配点 | 内容 |
 |---------|------|------|
-| 仕様策定 | 第1〜2週 | DUTの仕様書を作成（簡易バスブリッジ、DMAコントローラなど） |
-| RTL設計 | 第3〜5週 | SystemVerilog でRTLを実装 |
-| 検証計画 | 第6〜7週 | 検証戦略の策定、カバレッジモデルの設計 |
-| テストベンチ構築 | 第8〜10週 | UVMベースの検証環境を構築 |
-| 検証実行 | 第11〜12週 | リグレッション実行、カバレッジクロージャ |
-| レビュー | 第13週 | 全体の振り返り、ドキュメント作成 |
+| **RTL設計の正確性** | 30% | 仕様通りに動作するか |
+| **コードの可読性** | 15% | 命名規則、コメント、構造化 |
+| **テストベンチの品質** | 25% | テストの網羅性、自動チェック機能 |
+| **カバレッジ達成率** | 20% | 機能カバレッジ・コードカバレッジの達成度 |
+| **アサーションの活用** | 10% | 適切なアサーションの配置 |
+
+### 18.7.5 発展課題
+
+各プロジェクトの基本演習を完了した後、以下の発展課題にも挑戦してみてください。
+
+**UART発展課題**
+
+- **パリティ機能の追加**: 偶数パリティ/奇数パリティの送受信を実装します
+- **FIFO統合**: 8段のFIFOを送信/受信パスに組み込みます
+- **フロー制御**: RTS/CTSによるハードウェアフロー制御を追加します
+
+**簡易CPU発展課題**
+
+- **パイプライン化**: 2段または3段のパイプラインを実装します
+- **命令追加**: シフト演算、ジャンプ命令を追加します
+- **割り込み処理**: 単純な割り込みメカニズムを追加します
+
+**SPI発展課題**
+
+- **マルチスレーブ対応**: 複数のCS信号を管理するデコーダを追加します
+- **DMA連携**: DMAコントローラとの連携インターフェースを設計します
+- **可変データ幅**: 8/16/32ビットの転送幅を動的に切り替え可能にします
 
 ---
 
-## 18.10 まとめ
+## 18.8 まとめ
 
-本章では、本書全体の振り返りと今後の学習に向けたガイダンスを提供しました。最後に、本書で学んだ知識の要点を改めて整理します。
+本章では、3つのプロジェクト演習を通じて、SystemVerilogによる設計・検証の実践スキルを学びました。
 
-1. **SystemVerilogはハードウェア設計と検証を統合した唯一の業界標準言語です**。Verilog-95/2001の上位互換として、RTL設計から高度な検証メソドロジまでをカバーする包括的な言語仕様を持っています（第1章〜第2章）。
+1. **UARTコントローラ**では、ボーレートジェネレータ・送信モジュール・受信モジュールの設計と、ループバック方式による検証手法を学びました。16倍オーバーサンプリングによるビット中央サンプリングが信頼性の鍵となります。
+2. **簡易CPU**では、命令セットアーキテクチャの定義からALU・レジスタファイル・制御ユニットの実装まで、プロセッサ設計の基本フローを体験しました。命令デコードと制御信号の正確な対応付けが重要です。
+3. **SPIマスターコントローラ**では、4つのSPIモード（CPOL/CPHAの組み合わせ）に対応した設計と、スレーブモデルを用いた全二重通信の検証を行いました。
+4. **デバッグ戦略**として、体系的なアプローチ（症状特定→再現性確認→問題切り分け→波形確認→根本原因特定→回帰テスト）を各プロジェクトに適用する手法を学びました。
+5. **アサーションの埋め込み**により、プロトコル違反やタイミング異常を早期に検出できることを確認しました。
+6. **カバレッジ駆動検証（CDV）**のアプローチにより、検証の完了基準を定量的に管理する方法を実践しました。
 
-2. **設計の基本は、適切なデータ型の選択と、意図を明確にしたRTL記述です**。`logic` 型の使い分け、`always_comb`/`always_ff`/`always_latch` による回路種別の明示、インターフェースによる信号のカプセル化が、保守性の高い設計の基盤となります（第3章〜第6章）。
-
-3. **タスク・関数・パッケージは、コードの再利用性と保守性を高める基本要素です**。適切な粒度でのモジュール化と、パッケージを通じた定義の共有が、チーム開発の効率を左右します（第7章〜第8章）。
-
-4. **制約付きランダム検証（CRV）は、SystemVerilogの最も強力な検証機能です**。OOPに基づくクラス設計、`rand`/`randc` と制約ブロックによる自動テスト生成、`fork-join` による並列テスト実行が、効率的な検証を実現します（第9章〜第11章）。
-
-5. **SVAと機能カバレッジは、検証の品質と完全性を保証する仕組みです**。アサーションによる設計意図の形式的記述と、カバレッジによる検証の網羅性の数値化が、「十分にテストした」ことを客観的に示す根拠となります（第12章〜第13章）。
-
-6. **DPI-CとVPIは、SystemVerilogと外部世界をつなぐ橋渡しです**。C/C++リファレンスモデルとの連携、カスタムシステムタスクの作成、外部ツールとの統合を可能にします（第14章〜第15章）。
-
-7. **UVMは、大規模検証環境構築の事実上の標準メソドロジです**。再利用可能なコンポーネント設計、フェーズ管理、Factory パターンの活用が、効率的な検証環境の構築と保守を実現します（第16章）。
-
-8. **合成可能なサブセットの理解は、設計エンジニアの必須スキルです**。シミュレーションでは動作するがハードウェアにはならない記述を識別し、タイミング制約と整合性のあるRTLを記述する能力が求められます（第17章）。
-
-9. **継続的な学習が成功の鍵です**。IEEE規格書、推奨書籍、オンラインリソース、オープンソースツールを活用し、UVM、フォーマル検証、エミュレーション、AI支援設計などの最新トレンドにもアンテナを張り続けることが重要です（本章）。
-
----
-
-本書を手に取ってくださった読者の皆様、ここまでお読みいただき誠にありがとうございます。
-
-SystemVerilogは膨大な仕様を持つ言語であり、すべてを一度に習得することは困難です。しかし、本書で学んだ基礎知識は、これからの学習と実務における確かな土台となるはずです。
-
-半導体技術は、AI・IoT・自動運転・5G/6Gなどの先端分野を支える根幹技術であり、その重要性は今後も増す一方です。SystemVerilogのスキルを持つエンジニアの需要は、世界的に高まり続けています。
-
-本書が、皆様のSystemVerilogエンジニアとしてのキャリアの第一歩、あるいは次のステップへの道しるべとなることを心から願っています。
-
-半導体設計の世界で、皆様のご活躍を楽しみにしています。
+次章では、SystemVerilogのさらなる学習に向けたリソースと、本書全体のまとめを行います。
