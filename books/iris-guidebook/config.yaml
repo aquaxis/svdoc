@@ -5,6 +5,8 @@ published: true
 price: 0
 toc_depth: 2
 chapters:
+  - 00-introduction
+  - SUMMARY
   - chapter01
   - chapter02
   - chapter03
@@ -19,10 +21,6 @@ chapters:
   - chapter12
   - chapter13
   - chapter14
-  - chapter15
-  - chapter16
-  - chapter16
-  - chapter17
-  - chapter18
-  - chapter19
-  - appendix
+  - appendix-a
+  - appendix-b
+  - appendix-c
