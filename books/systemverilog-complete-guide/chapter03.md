@@ -18,7 +18,7 @@ SystemVerilogを使いこなすうえで、データ型の理解は避けて通�
 
 これらを正しく理解することで、ハードウェア設計と検証の両方で、安全かつ効率的なコードを書けるようになります。
 
-![SystemVerilogデータ型の分類体系](/books/systemverilog-complete-guide/images/ch03_type_hierarchy.drawio.png)
+![SystemVerilogデータ型の分類体系](/images/books/systemverilog-complete-guide/ch03_type_hierarchy.drawio.png)
 
 ---
 
@@ -139,7 +139,7 @@ bit [31:0] test_data;   // 32ビットテストデータ
 | x/z検出 | 可能 | 不可能 |
 | シミュレーション速度 | 標準 | 高速（場合による） |
 
-![4値論理と2値論理の信号状態遷移](/books/systemverilog-complete-guide/images/ch03_4state_vs_2state.drawio.png)
+![4値論理と2値論理の信号状態遷移](/images/books/systemverilog-complete-guide/ch03_4state_vs_2state.drawio.png)
 
 ---
 
@@ -435,7 +435,7 @@ end
 
 > **注意**: `tagged union`のサポート状況はシミュレータによって異なります。使用前にツールの対応状況を確認してください。
 
-![構造体と共用体のメモリレイアウト比較](/books/systemverilog-complete-guide/images/ch03_struct_union_layout.drawio.png)
+![構造体と共用体のメモリレイアウト比較](/images/books/systemverilog-complete-guide/ch03_struct_union_layout.drawio.png)
 
 ---
 
