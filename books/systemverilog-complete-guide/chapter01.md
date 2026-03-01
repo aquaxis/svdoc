@@ -98,7 +98,7 @@ SystemVerilogはVerilogの上位互換であり、Verilogのすべての機能�
 - **カバレッジ（Coverage）**: 機能カバレッジによるテスト網羅率の測定
 - **プロセス制御**: `fork`/`join`による並行処理の制御
 
-![Verilog-95からSystemVerilogへの進化の流れ](/images/ch01_hdl_evolution.drawio.png)
+![Verilog-95からSystemVerilogへの進化の流れ](/images/systemverilog-complete-guide/ch01_hdl_evolution.drawio.png)
 
 ---
 
