@@ -16,7 +16,7 @@ SystemVerilogは、ハードウェア設計と検証の両方で必要となる�
 
 これらのデータ構造を正しく使い分けることで、テストベンチの記述効率が飛躍的に向上し、複雑なデータ管理も簡潔に表現できるようになります。
 
-![配列の種類と特徴の概要](/images/ch04_array_overview.drawio.png)
+![配列の種類と特徴の概要](/images/systemverilog-complete-guide/ch04_array_overview.drawio.png)
 
 ---
 
@@ -243,7 +243,7 @@ initial begin
 end
 ```
 
-![静的配列・動的配列・連想配列のメモリ配置の比較](/images/ch04_array_memory_layout.drawio.png)
+![静的配列・動的配列・連想配列のメモリ配置の比較](/images/systemverilog-complete-guide/ch04_array_memory_layout.drawio.png)
 
 ---
 
@@ -454,7 +454,7 @@ initial begin
 end
 ```
 
-![パック配列とアンパック配列のメモリ配置](/images/ch04_packed_vs_unpacked.drawio.png)
+![パック配列とアンパック配列のメモリ配置](/images/systemverilog-complete-guide/ch04_packed_vs_unpacked.drawio.png)
 
 ---
 
