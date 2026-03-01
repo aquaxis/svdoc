@@ -25,7 +25,7 @@ title: "第19章：今後の学習リソースとまとめ"
 
 本書は全6部・18章の構成で、SystemVerilogの基礎から応用までを体系的に解説してきました。ここでは、各部・各章の要点を簡潔に振り返ります。
 
-![本書の全体構成と各部の位置づけ](/images/books/systemverilog-complete-guide/ch18_book_structure.drawio.png)
+![本書の全体構成と各部の位置づけ](/images/ch18_book_structure.drawio.png)
 
 ### 19.2.1 第1部：導入と背景（第1章〜第2章）
 
@@ -82,7 +82,7 @@ title: "第19章：今後の学習リソースとまとめ"
 
 本書で学んだ知識を基盤として、さらに専門性を深めるための学習パスを、主要なキャリア目標別に示します。
 
-![キャリア別学習ロードマップ](/images/books/systemverilog-complete-guide/ch18_learning_roadmap.drawio.png)
+![キャリア別学習ロードマップ](/images/ch18_learning_roadmap.drawio.png)
 
 ### 19.3.1 RTL設計エンジニアを目指す方
 
@@ -290,7 +290,7 @@ pip install cocotb
 
 SystemVerilogを取り巻く半導体業界の検証・設計技術は、日々進化を続けています。ここでは、エンジニアとして押さえておくべき最新トレンドを紹介します。
 
-![検証技術の進化とトレンド](/images/books/systemverilog-complete-guide/ch18_industry_trends.drawio.png)
+![検証技術の進化とトレンド](/images/ch18_industry_trends.drawio.png)
 
 ### 19.5.1 UVMの進化と標準化
 
@@ -431,7 +431,7 @@ Accellera が策定した Portable Stimulus Standard（PSS）は、検証の新�
 
 これまでの内容を踏まえ、SystemVerilog学習の全体像を一つのマップとして整理します。
 
-![SystemVerilog学習の全体マップ](/images/books/systemverilog-complete-guide/ch18_learning_map.drawio.png)
+![SystemVerilog学習の全体マップ](/images/ch18_learning_map.drawio.png)
 
 ### 19.7.1 学習段階の目安
 

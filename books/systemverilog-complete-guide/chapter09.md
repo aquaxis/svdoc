@@ -129,7 +129,7 @@ initial begin
 end
 ```
 
-![ハンドルとオブジェクトの関係](/images/books/systemverilog-complete-guide/ch09_handle_object.drawio.png)
+![ハンドルとオブジェクトの関係](/images/ch09_handle_object.drawio.png)
 
 ---
 
@@ -323,7 +323,7 @@ endmodule
 
 **重要**: オーバーライドを意図するメソッドには必ず `virtual` を付けましょう。UVM環境では全メソッドが `virtual` であることが前提となっています。
 
-![多態性の仕組み](/images/books/systemverilog-complete-guide/ch09_polymorphism.drawio.png)
+![多態性の仕組み](/images/ch09_polymorphism.drawio.png)
 
 ---
 
