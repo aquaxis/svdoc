@@ -62,7 +62,7 @@ PLI 1.0の問題点は、TFとACCが別々に設計されたため一貫性が�
 
 VPIはオブジェクト指向のモデルを採用しており、シミュレーション内部のすべてのエンティティを**オブジェクト**として表現します。オブジェクト間の関係は**1対1（one-to-one）**と**1対多（one-to-many）**の2種類で表されます。
 
-![VPIオブジェクトモデル](/images/ch15_vpi_object_model.drawio.png)
+![VPIオブジェクトモデル](/books/systemverilog-complete-guide/images/ch15_vpi_object_model.drawio.png)
 
 主要なオブジェクトタイプは以下の通りです。
 
@@ -815,7 +815,7 @@ static int dump_design_calltf(char *user_data) {
 
 VPIアプリケーションをシミュレータに登録するには、`vlog_startup_routines` 配列を定義します。この配列は、シミュレータがVPIライブラリをロードする際に自動的に呼び出されます。
 
-![VPIコールバックフロー](/images/ch15_vpi_callback.drawio.png)
+![VPIコールバックフロー](/books/systemverilog-complete-guide/images/ch15_vpi_callback.drawio.png)
 
 ```c
 #include "vpi_user.h"

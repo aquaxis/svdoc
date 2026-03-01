@@ -27,7 +27,7 @@ HDL（Hardware Description Language）とは、デジタル回路の構造や動
 
 HDLで書かれたコードは、**論理合成**（Synthesis）というプロセスを経て、実際のゲートレベルの回路に変換されます。つまり、HDLは「プログラムを書く」というよりも「回路を設計する」ための言語です。
 
-![HDLの役割：コードから回路への変換フロー](/images/ch01_hdl_flow.drawio.png)
+![HDLの役割：コードから回路への変換フロー](/books/systemverilog-complete-guide/images/ch01_hdl_flow.drawio.png)
 
 ### 1.2.2 Verilog-95（IEEE 1364-1995）
 
@@ -98,7 +98,7 @@ SystemVerilogはVerilogの上位互換であり、Verilogのすべての機能�
 - **カバレッジ（Coverage）**: 機能カバレッジによるテスト網羅率の測定
 - **プロセス制御**: `fork`/`join`による並行処理の制御
 
-![Verilog-95からSystemVerilogへの進化の流れ](/images/ch01_hdl_evolution.drawio.png)
+![Verilog-95からSystemVerilogへの進化の流れ](/books/systemverilog-complete-guide/images/ch01_hdl_evolution.drawio.png)
 
 ---
 
@@ -261,7 +261,7 @@ end
 
 Verilog-2001では、これらすべてが`always`ブロック1種類で記述されていたため、設計者の意図（組み合わせ回路なのか順序回路なのか）が曖昧になることがありました。SystemVerilogの`always_comb`、`always_ff`、`always_latch`を使うことで、意図しないラッチの生成などの設計ミスを早期に発見できます。
 
-![always_comb, always_ff, always_latch の使い分け](/images/ch01_always_blocks.drawio.png)
+![always_comb, always_ff, always_latch の使い分け](/books/systemverilog-complete-guide/images/ch01_always_blocks.drawio.png)
 
 ---
 

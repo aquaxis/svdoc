@@ -20,7 +20,7 @@ SystemVerilogで設計や検証を行うには、まずソースコードを記�
 
 SystemVerilogのシミュレータは、大きく「商用シミュレータ」と「オープンソースシミュレータ」の2種類に分類されます。プロジェクトの規模、予算、必要とする機能に応じて適切なツールを選択することが重要です。
 
-![シミュレータの分類と特徴](/images/ch02_simulator_overview.drawio.png)
+![シミュレータの分類と特徴](/books/systemverilog-complete-guide/images/ch02_simulator_overview.drawio.png)
 
 ### 2.2.1 商用シミュレータ
 
@@ -229,7 +229,7 @@ iverilog -g2012 -o sim.vvp -f filelist.txt
 
 SystemVerilogのソースコードがシミュレーション結果を出力するまでには、複数のフェーズを経ます。この流れを正確に理解することは、エラーメッセージの解釈やデバッグにおいて極めて重要です。
 
-![コンパイルからシミュレーション実行までのワークフロー](/images/ch02_workflow.drawio.png)
+![コンパイルからシミュレーション実行までのワークフロー](/books/systemverilog-complete-guide/images/ch02_workflow.drawio.png)
 
 ### 2.3.1 全体の流れ
 
